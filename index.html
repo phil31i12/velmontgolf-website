@@ -1155,7 +1155,7 @@
         <div class="hero-layer hero-layer-mid" data-speed="0.5">
             <div class="hero-tee-wrap">
                 <div class="hero-tee-spotlight"></div>
-                <svg class="hero-tee-svg" viewBox="0 0 200 300" width="200" height="300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg class="hero-tee-svg" viewBox="0 -80 200 380" width="200" height="380" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <linearGradient id="teeBody" x1="80" y1="60" x2="120" y2="180" gradientUnits="userSpaceOnUse">
                             <stop offset="0%" stop-color="#3a3a3a"/>
@@ -1177,25 +1177,32 @@
                     </defs>
 
                     <!-- ===== GOLF BALL ===== -->
-                    <!-- Ball diameter ~= cylinder width. Sits centered on cup opening -->
-                    <circle cx="100" cy="38" r="36" fill="url(#ballGrad)"/>
-                    <!-- Subtle dimple rows -->
-                    <circle cx="88" cy="26" r="2" fill="rgba(190,190,190,0.4)"/>
-                    <circle cx="96" cy="22" r="2" fill="rgba(190,190,190,0.4)"/>
-                    <circle cx="104" cy="22" r="2" fill="rgba(190,190,190,0.4)"/>
-                    <circle cx="112" cy="26" r="2" fill="rgba(190,190,190,0.4)"/>
-                    <circle cx="84" cy="34" r="2" fill="rgba(190,190,190,0.35)"/>
-                    <circle cx="92" cy="30" r="2" fill="rgba(190,190,190,0.35)"/>
-                    <circle cx="100" cy="28" r="2" fill="rgba(190,190,190,0.35)"/>
-                    <circle cx="108" cy="30" r="2" fill="rgba(190,190,190,0.35)"/>
-                    <circle cx="116" cy="34" r="2" fill="rgba(190,190,190,0.35)"/>
-                    <circle cx="88" cy="42" r="1.8" fill="rgba(190,190,190,0.3)"/>
-                    <circle cx="96" cy="38" r="1.8" fill="rgba(190,190,190,0.3)"/>
-                    <circle cx="104" cy="38" r="1.8" fill="rgba(190,190,190,0.3)"/>
-                    <circle cx="112" cy="42" r="1.8" fill="rgba(190,190,190,0.3)"/>
-                    <circle cx="92" cy="48" r="1.6" fill="rgba(190,190,190,0.25)"/>
-                    <circle cx="100" cy="46" r="1.6" fill="rgba(190,190,190,0.25)"/>
-                    <circle cx="108" cy="48" r="1.6" fill="rgba(190,190,190,0.25)"/>
+                    <!-- r=72, cx=100 (centered on cup). Bottom of ball at y=68 (cup rim), so cy=68-72=-4 -->
+                    <circle cx="100" cy="-4" r="72" fill="url(#ballGrad)"/>
+                    <!-- Dimple pattern (larger, spread across ball) -->
+                    <circle cx="76" cy="-28" r="3.5" fill="rgba(190,190,190,0.4)"/>
+                    <circle cx="88" cy="-36" r="3.5" fill="rgba(190,190,190,0.4)"/>
+                    <circle cx="100" cy="-40" r="3.5" fill="rgba(190,190,190,0.4)"/>
+                    <circle cx="112" cy="-36" r="3.5" fill="rgba(190,190,190,0.4)"/>
+                    <circle cx="124" cy="-28" r="3.5" fill="rgba(190,190,190,0.4)"/>
+                    <circle cx="72" cy="-14" r="3.5" fill="rgba(190,190,190,0.35)"/>
+                    <circle cx="84" cy="-22" r="3.5" fill="rgba(190,190,190,0.35)"/>
+                    <circle cx="96" cy="-26" r="3.5" fill="rgba(190,190,190,0.35)"/>
+                    <circle cx="108" cy="-24" r="3.5" fill="rgba(190,190,190,0.35)"/>
+                    <circle cx="120" cy="-18" r="3.5" fill="rgba(190,190,190,0.35)"/>
+                    <circle cx="130" cy="-10" r="3.5" fill="rgba(190,190,190,0.35)"/>
+                    <circle cx="78" cy="-4" r="3" fill="rgba(190,190,190,0.3)"/>
+                    <circle cx="90" cy="-10" r="3" fill="rgba(190,190,190,0.3)"/>
+                    <circle cx="100" cy="-12" r="3" fill="rgba(190,190,190,0.3)"/>
+                    <circle cx="110" cy="-10" r="3" fill="rgba(190,190,190,0.3)"/>
+                    <circle cx="122" cy="-4" r="3" fill="rgba(190,190,190,0.3)"/>
+                    <circle cx="84" cy="8" r="2.8" fill="rgba(190,190,190,0.25)"/>
+                    <circle cx="96" cy="4" r="2.8" fill="rgba(190,190,190,0.25)"/>
+                    <circle cx="108" cy="4" r="2.8" fill="rgba(190,190,190,0.25)"/>
+                    <circle cx="118" cy="10" r="2.8" fill="rgba(190,190,190,0.25)"/>
+                    <circle cx="100" cy="-52" r="3" fill="rgba(190,190,190,0.45)"/>
+                    <circle cx="88" cy="-48" r="3" fill="rgba(190,190,190,0.4)"/>
+                    <circle cx="112" cy="-48" r="3" fill="rgba(190,190,190,0.4)"/>
 
                     <!-- ===== CYLINDER CUP (wider, shorter) ===== -->
                     <!-- Cylinder body: wider (60px) and shorter -->
