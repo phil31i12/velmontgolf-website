@@ -1233,67 +1233,8 @@
                     <ellipse cx="100" cy="176" rx="50" ry="4" fill="rgba(0,0,0,0.18)"/>
 
                     <!-- ===== GOLF BALL (drawn last = on top of cup rim) ===== -->
-                    <!-- Clip to ball shape -->
-                    <clipPath id="ballClip">
-                        <circle cx="100" cy="-4" r="72"/>
-                    </clipPath>
-                    <!-- Base sphere -->
                     <circle cx="100" cy="-4" r="72" fill="url(#ballGrad)"/>
-                    <!-- Dimples: each is a small dark circle with a light highlight beside it -->
-                    <!-- Row 1 (top) -->
-                    <circle cx="100" cy="-68" r="3" fill="rgba(160,160,160,0.35)"/><circle cx="101.5" cy="-69.5" r="1.2" fill="rgba(255,255,255,0.5)"/>
-                    <!-- Row 2 -->
-                    <circle cx="85" cy="-62" r="3.2" fill="rgba(155,155,155,0.38)"/><circle cx="86.5" cy="-63.5" r="1.3" fill="rgba(255,255,255,0.5)"/>
-                    <circle cx="100" cy="-64" r="3.2" fill="rgba(155,155,155,0.38)"/><circle cx="101.5" cy="-65.5" r="1.3" fill="rgba(255,255,255,0.5)"/>
-                    <circle cx="115" cy="-62" r="3.2" fill="rgba(155,155,155,0.38)"/><circle cx="116.5" cy="-63.5" r="1.3" fill="rgba(255,255,255,0.5)"/>
-                    <!-- Row 3 -->
-                    <circle cx="72" cy="-52" r="3.4" fill="rgba(150,150,150,0.4)"/><circle cx="73.5" cy="-53.5" r="1.4" fill="rgba(255,255,255,0.5)"/>
-                    <circle cx="86" cy="-56" r="3.4" fill="rgba(150,150,150,0.4)"/><circle cx="87.5" cy="-57.5" r="1.4" fill="rgba(255,255,255,0.5)"/>
-                    <circle cx="100" cy="-58" r="3.4" fill="rgba(150,150,150,0.4)"/><circle cx="101.5" cy="-59.5" r="1.4" fill="rgba(255,255,255,0.5)"/>
-                    <circle cx="114" cy="-56" r="3.4" fill="rgba(150,150,150,0.4)"/><circle cx="115.5" cy="-57.5" r="1.4" fill="rgba(255,255,255,0.5)"/>
-                    <circle cx="128" cy="-52" r="3.4" fill="rgba(150,150,150,0.4)"/><circle cx="129.5" cy="-53.5" r="1.4" fill="rgba(255,255,255,0.5)"/>
-                    <!-- Row 4 -->
-                    <circle cx="62" cy="-40" r="3.5" fill="rgba(148,148,148,0.4)"/><circle cx="63.5" cy="-41.5" r="1.4" fill="rgba(255,255,255,0.48)"/>
-                    <circle cx="76" cy="-46" r="3.5" fill="rgba(148,148,148,0.4)"/><circle cx="77.5" cy="-47.5" r="1.4" fill="rgba(255,255,255,0.48)"/>
-                    <circle cx="90" cy="-48" r="3.5" fill="rgba(148,148,148,0.4)"/><circle cx="91.5" cy="-49.5" r="1.4" fill="rgba(255,255,255,0.48)"/>
-                    <circle cx="100" cy="-50" r="3.5" fill="rgba(148,148,148,0.4)"/><circle cx="101.5" cy="-51.5" r="1.4" fill="rgba(255,255,255,0.48)"/>
-                    <circle cx="110" cy="-48" r="3.5" fill="rgba(148,148,148,0.4)"/><circle cx="111.5" cy="-49.5" r="1.4" fill="rgba(255,255,255,0.48)"/>
-                    <circle cx="124" cy="-46" r="3.5" fill="rgba(148,148,148,0.4)"/><circle cx="125.5" cy="-47.5" r="1.4" fill="rgba(255,255,255,0.48)"/>
-                    <circle cx="138" cy="-40" r="3.5" fill="rgba(148,148,148,0.4)"/><circle cx="139.5" cy="-41.5" r="1.4" fill="rgba(255,255,255,0.48)"/>
-                    <!-- Row 5 -->
-                    <circle cx="56" cy="-26" r="3.5" fill="rgba(145,145,145,0.38)"/><circle cx="57.5" cy="-27.5" r="1.4" fill="rgba(255,255,255,0.45)"/>
-                    <circle cx="70" cy="-34" r="3.5" fill="rgba(145,145,145,0.38)"/><circle cx="71.5" cy="-35.5" r="1.4" fill="rgba(255,255,255,0.45)"/>
-                    <circle cx="84" cy="-38" r="3.5" fill="rgba(145,145,145,0.38)"/><circle cx="85.5" cy="-39.5" r="1.4" fill="rgba(255,255,255,0.45)"/>
-                    <circle cx="100" cy="-40" r="3.5" fill="rgba(145,145,145,0.38)"/><circle cx="101.5" cy="-41.5" r="1.4" fill="rgba(255,255,255,0.45)"/>
-                    <circle cx="116" cy="-38" r="3.5" fill="rgba(145,145,145,0.38)"/><circle cx="117.5" cy="-39.5" r="1.4" fill="rgba(255,255,255,0.45)"/>
-                    <circle cx="130" cy="-34" r="3.5" fill="rgba(145,145,145,0.38)"/><circle cx="131.5" cy="-35.5" r="1.4" fill="rgba(255,255,255,0.45)"/>
-                    <circle cx="144" cy="-26" r="3.5" fill="rgba(145,145,145,0.38)"/><circle cx="145.5" cy="-27.5" r="1.4" fill="rgba(255,255,255,0.45)"/>
-                    <!-- Row 6 (equator area) -->
-                    <circle cx="54" cy="-10" r="3.5" fill="rgba(140,140,140,0.35)"/><circle cx="55.5" cy="-11.5" r="1.4" fill="rgba(255,255,255,0.4)"/>
-                    <circle cx="68" cy="-18" r="3.5" fill="rgba(140,140,140,0.35)"/><circle cx="69.5" cy="-19.5" r="1.4" fill="rgba(255,255,255,0.4)"/>
-                    <circle cx="82" cy="-24" r="3.5" fill="rgba(140,140,140,0.35)"/><circle cx="83.5" cy="-25.5" r="1.4" fill="rgba(255,255,255,0.4)"/>
-                    <circle cx="96" cy="-26" r="3.5" fill="rgba(140,140,140,0.35)"/><circle cx="97.5" cy="-27.5" r="1.4" fill="rgba(255,255,255,0.4)"/>
-                    <circle cx="112" cy="-24" r="3.5" fill="rgba(140,140,140,0.35)"/><circle cx="113.5" cy="-25.5" r="1.4" fill="rgba(255,255,255,0.4)"/>
-                    <circle cx="126" cy="-18" r="3.5" fill="rgba(140,140,140,0.35)"/><circle cx="127.5" cy="-19.5" r="1.4" fill="rgba(255,255,255,0.4)"/>
-                    <circle cx="140" cy="-10" r="3.5" fill="rgba(140,140,140,0.35)"/><circle cx="141.5" cy="-11.5" r="1.4" fill="rgba(255,255,255,0.4)"/>
-                    <!-- Row 7 -->
-                    <circle cx="56" cy="6" r="3.4" fill="rgba(135,135,135,0.3)"/><circle cx="57.5" cy="4.5" r="1.3" fill="rgba(255,255,255,0.35)"/>
-                    <circle cx="70" cy="-2" r="3.4" fill="rgba(135,135,135,0.3)"/><circle cx="71.5" cy="-3.5" r="1.3" fill="rgba(255,255,255,0.35)"/>
-                    <circle cx="84" cy="-8" r="3.4" fill="rgba(135,135,135,0.3)"/><circle cx="85.5" cy="-9.5" r="1.3" fill="rgba(255,255,255,0.35)"/>
-                    <circle cx="98" cy="-10" r="3.4" fill="rgba(135,135,135,0.3)"/><circle cx="99.5" cy="-11.5" r="1.3" fill="rgba(255,255,255,0.35)"/>
-                    <circle cx="112" cy="-8" r="3.4" fill="rgba(135,135,135,0.3)"/><circle cx="113.5" cy="-9.5" r="1.3" fill="rgba(255,255,255,0.35)"/>
-                    <circle cx="126" cy="-2" r="3.4" fill="rgba(135,135,135,0.3)"/><circle cx="127.5" cy="-3.5" r="1.3" fill="rgba(255,255,255,0.35)"/>
-                    <circle cx="140" cy="6" r="3.4" fill="rgba(135,135,135,0.3)"/><circle cx="141.5" cy="4.5" r="1.3" fill="rgba(255,255,255,0.35)"/>
-                    <!-- Row 8 (lower, fading into shadow) -->
-                    <circle cx="62" cy="20" r="3.2" fill="rgba(125,125,125,0.25)"/>
-                    <circle cx="76" cy="14" r="3.2" fill="rgba(125,125,125,0.25)"/>
-                    <circle cx="90" cy="8" r="3.2" fill="rgba(125,125,125,0.25)"/>
-                    <circle cx="104" cy="6" r="3.2" fill="rgba(125,125,125,0.25)"/>
-                    <circle cx="118" cy="10" r="3.2" fill="rgba(125,125,125,0.25)"/>
-                    <circle cx="130" cy="16" r="3.2" fill="rgba(125,125,125,0.25)"/>
-                    <!-- Specular highlight overlay -->
                     <circle cx="100" cy="-4" r="72" fill="url(#ballSpecular)"/>
-                    <!-- Ambient occlusion bottom -->
                     <circle cx="100" cy="-4" r="72" fill="url(#ballAO)"/>
                 </svg>
             </div>
