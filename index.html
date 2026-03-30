@@ -1155,99 +1155,106 @@
         <div class="hero-layer hero-layer-mid" data-speed="0.5">
             <div class="hero-tee-wrap">
                 <div class="hero-tee-spotlight"></div>
-                <svg class="hero-tee-svg" viewBox="0 -70 220 430" width="176" height="344" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg class="hero-tee-svg" viewBox="0 0 200 300" width="200" height="300" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <defs>
-                        <linearGradient id="teeBody" x1="90" y1="20" x2="130" y2="200" gradientUnits="userSpaceOnUse">
+                        <linearGradient id="teeBody" x1="80" y1="60" x2="120" y2="180" gradientUnits="userSpaceOnUse">
                             <stop offset="0%" stop-color="#3a3a3a"/>
-                            <stop offset="40%" stop-color="#1a1a1a"/>
+                            <stop offset="40%" stop-color="#222"/>
                             <stop offset="100%" stop-color="#111"/>
                         </linearGradient>
-                        <linearGradient id="teeHighlight" x1="95" y1="0" x2="125" y2="0" gradientUnits="userSpaceOnUse">
+                        <linearGradient id="teeHighlight" x1="88" y1="0" x2="112" y2="0" gradientUnits="userSpaceOnUse">
                             <stop offset="0%" stop-color="transparent"/>
-                            <stop offset="30%" stop-color="rgba(255,255,255,0.10)"/>
-                            <stop offset="70%" stop-color="rgba(255,255,255,0.10)"/>
+                            <stop offset="30%" stop-color="rgba(255,255,255,0.08)"/>
+                            <stop offset="70%" stop-color="rgba(255,255,255,0.08)"/>
                             <stop offset="100%" stop-color="transparent"/>
                         </linearGradient>
-                        <radialGradient id="ballGrad" cx="45%" cy="38%" r="50%">
+                        <radialGradient id="ballGrad" cx="42%" cy="35%" r="55%">
                             <stop offset="0%" stop-color="#ffffff"/>
-                            <stop offset="60%" stop-color="#e8e8e8"/>
-                            <stop offset="100%" stop-color="#c0c0c0"/>
+                            <stop offset="50%" stop-color="#f0f0f0"/>
+                            <stop offset="80%" stop-color="#d8d8d8"/>
+                            <stop offset="100%" stop-color="#b0b0b0"/>
                         </radialGradient>
                     </defs>
 
-                    <!-- ===== GOLF BALL on top ===== -->
-                    <!-- Ball sits in the cup opening (rim at y=42, cx=110). cy=-6 so ball nestles into cup -->
-                    <circle cx="110" cy="-6" r="54" fill="url(#ballGrad)"/>
-                    <!-- Dimple pattern -->
-                    <circle cx="94" cy="-22" r="3.5" fill="rgba(180,180,180,0.5)"/>
-                    <circle cx="110" cy="-28" r="3.5" fill="rgba(180,180,180,0.5)"/>
-                    <circle cx="126" cy="-22" r="3.5" fill="rgba(180,180,180,0.5)"/>
-                    <circle cx="86" cy="-8" r="3.5" fill="rgba(180,180,180,0.4)"/>
-                    <circle cx="100" cy="-14" r="3.5" fill="rgba(180,180,180,0.4)"/>
-                    <circle cx="120" cy="-14" r="3.5" fill="rgba(180,180,180,0.4)"/>
-                    <circle cx="132" cy="-4" r="3.5" fill="rgba(180,180,180,0.4)"/>
-                    <circle cx="96" cy="2" r="3" fill="rgba(180,180,180,0.35)"/>
-                    <circle cx="114" cy="0" r="3" fill="rgba(180,180,180,0.35)"/>
-                    <circle cx="106" cy="12" r="3" fill="rgba(180,180,180,0.3)"/>
-                    <circle cx="124" cy="8" r="3" fill="rgba(180,180,180,0.3)"/>
-                    <circle cx="90" cy="14" r="2.8" fill="rgba(180,180,180,0.25)"/>
-                    <circle cx="110" cy="-40" r="3" fill="rgba(180,180,180,0.45)"/>
-                    <circle cx="100" cy="-34" r="3" fill="rgba(180,180,180,0.4)"/>
-                    <circle cx="120" cy="-34" r="3" fill="rgba(180,180,180,0.4)"/>
+                    <!-- ===== GOLF BALL ===== -->
+                    <!-- Ball diameter ~= cylinder width. Sits centered on cup opening -->
+                    <circle cx="100" cy="38" r="36" fill="url(#ballGrad)"/>
+                    <!-- Subtle dimple rows -->
+                    <circle cx="88" cy="26" r="2" fill="rgba(190,190,190,0.4)"/>
+                    <circle cx="96" cy="22" r="2" fill="rgba(190,190,190,0.4)"/>
+                    <circle cx="104" cy="22" r="2" fill="rgba(190,190,190,0.4)"/>
+                    <circle cx="112" cy="26" r="2" fill="rgba(190,190,190,0.4)"/>
+                    <circle cx="84" cy="34" r="2" fill="rgba(190,190,190,0.35)"/>
+                    <circle cx="92" cy="30" r="2" fill="rgba(190,190,190,0.35)"/>
+                    <circle cx="100" cy="28" r="2" fill="rgba(190,190,190,0.35)"/>
+                    <circle cx="108" cy="30" r="2" fill="rgba(190,190,190,0.35)"/>
+                    <circle cx="116" cy="34" r="2" fill="rgba(190,190,190,0.35)"/>
+                    <circle cx="88" cy="42" r="1.8" fill="rgba(190,190,190,0.3)"/>
+                    <circle cx="96" cy="38" r="1.8" fill="rgba(190,190,190,0.3)"/>
+                    <circle cx="104" cy="38" r="1.8" fill="rgba(190,190,190,0.3)"/>
+                    <circle cx="112" cy="42" r="1.8" fill="rgba(190,190,190,0.3)"/>
+                    <circle cx="92" cy="48" r="1.6" fill="rgba(190,190,190,0.25)"/>
+                    <circle cx="100" cy="46" r="1.6" fill="rgba(190,190,190,0.25)"/>
+                    <circle cx="108" cy="48" r="1.6" fill="rgba(190,190,190,0.25)"/>
 
-                    <!-- ===== CYLINDER CUP ===== -->
-                    <path d="M88,42 L88,130 Q88,136 92,138 L128,138 Q132,136 132,130 L132,42" fill="url(#teeBody)" stroke="#222" stroke-width="1"/>
+                    <!-- ===== CYLINDER CUP (wider, shorter) ===== -->
+                    <!-- Cylinder body: wider (60px) and shorter -->
+                    <path d="M70,68 L70,130 Q70,136 76,138 L124,138 Q130,136 130,130 L130,68" fill="url(#teeBody)" stroke="#1a1a1a" stroke-width="0.8"/>
                     <!-- Top rim ellipse -->
-                    <ellipse cx="110" cy="42" rx="22" ry="8" fill="#2a2a2a" stroke="#333" stroke-width="0.8"/>
-                    <!-- Inner opening (ball sits in this) -->
-                    <ellipse cx="110" cy="42" rx="16" ry="5.5" fill="#0a0a0a"/>
-                    <!-- Ball shadow inside cup -->
-                    <ellipse cx="110" cy="42" rx="14" ry="4" fill="rgba(0,0,0,0.3)"/>
+                    <ellipse cx="100" cy="68" rx="30" ry="10" fill="#2a2a2a" stroke="#333" stroke-width="0.8"/>
+                    <!-- Inner cup opening -->
+                    <ellipse cx="100" cy="68" rx="22" ry="7" fill="#0a0a0a"/>
+                    <!-- Ball shadow on rim -->
+                    <ellipse cx="100" cy="68" rx="18" ry="5" fill="rgba(0,0,0,0.25)"/>
                     <!-- Vertical ridges -->
-                    <line x1="95" y1="46" x2="95" y2="132" stroke="rgba(255,255,255,0.06)" stroke-width="1.5"/>
-                    <line x1="103" y1="45" x2="103" y2="134" stroke="rgba(255,255,255,0.08)" stroke-width="1.2"/>
-                    <line x1="110" y1="44" x2="110" y2="136" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/>
-                    <line x1="117" y1="45" x2="117" y2="134" stroke="rgba(255,255,255,0.08)" stroke-width="1.2"/>
-                    <line x1="125" y1="46" x2="125" y2="132" stroke="rgba(255,255,255,0.06)" stroke-width="1.5"/>
-                    <!-- Highlight reflection -->
-                    <rect x="100" y="48" width="20" height="82" rx="10" fill="url(#teeHighlight)"/>
+                    <line x1="80" y1="72" x2="80" y2="132" stroke="rgba(255,255,255,0.05)" stroke-width="1.5"/>
+                    <line x1="90" y1="71" x2="90" y2="134" stroke="rgba(255,255,255,0.07)" stroke-width="1.2"/>
+                    <line x1="100" y1="70" x2="100" y2="136" stroke="rgba(255,255,255,0.09)" stroke-width="1.5"/>
+                    <line x1="110" y1="71" x2="110" y2="134" stroke="rgba(255,255,255,0.07)" stroke-width="1.2"/>
+                    <line x1="120" y1="72" x2="120" y2="132" stroke="rgba(255,255,255,0.05)" stroke-width="1.5"/>
+                    <!-- Highlight -->
+                    <rect x="92" y="74" width="16" height="58" rx="8" fill="url(#teeHighlight)"/>
 
-                    <!-- ===== THREE STRAIGHT LEGS (tripod, ~45 deg outward) ===== -->
+                    <!-- ===== THREE LEGS (thick, straight, ~40deg outward) ===== -->
 
-                    <!-- Left leg: shorter diagonal -->
-                    <path d="M90,134 L54,172 L48,172 C44,172 42,168 44,164 L46,162 L82,128 Z" fill="url(#teeBody)" stroke="#222" stroke-width="0.5"/>
-                    <!-- Left hook tip -->
-                    <path d="M48,172 C44,172 40,168 40,164 C40,158 44,156 48,158 L54,172 Z" fill="url(#teeBody)" stroke="#222" stroke-width="0.5"/>
+                    <!-- Left leg -->
+                    <path d="M74,132 L72,134 L38,170 L32,170 L30,166 L68,130 Z" fill="url(#teeBody)" stroke="#1a1a1a" stroke-width="0.5"/>
+                    <path d="M78,136 L76,138 L44,172 L38,170 L68,134 Z" fill="url(#teeBody)" stroke="#1a1a1a" stroke-width="0.5"/>
+                    <path d="M74,132 L68,130 L30,166 L32,170 L44,172 L76,138 L78,136 Z" fill="url(#teeBody)"/>
+                    <!-- Left foot/hook -->
+                    <path d="M32,170 C28,170 24,166 26,162 C28,158 32,158 34,160 L38,170 Z" fill="url(#teeBody)" stroke="#1a1a1a" stroke-width="0.5"/>
 
-                    <!-- Right leg: mirror -->
-                    <path d="M130,134 L166,172 L172,172 C176,172 178,168 176,164 L174,162 L138,128 Z" fill="url(#teeBody)" stroke="#222" stroke-width="0.5"/>
-                    <!-- Right hook tip -->
-                    <path d="M172,172 C176,172 180,168 180,164 C180,158 176,156 172,158 L166,172 Z" fill="url(#teeBody)" stroke="#222" stroke-width="0.5"/>
+                    <!-- Right leg (mirror) -->
+                    <path d="M126,132 L128,134 L162,170 L168,170 L170,166 L132,130 Z" fill="url(#teeBody)" stroke="#1a1a1a" stroke-width="0.5"/>
+                    <path d="M122,136 L124,138 L156,172 L162,170 L132,134 Z" fill="url(#teeBody)" stroke="#1a1a1a" stroke-width="0.5"/>
+                    <path d="M126,132 L132,130 L170,166 L168,170 L156,172 L124,138 L122,136 Z" fill="url(#teeBody)"/>
+                    <!-- Right foot/hook -->
+                    <path d="M168,170 C172,170 176,166 174,162 C172,158 168,158 166,160 L162,170 Z" fill="url(#teeBody)" stroke="#1a1a1a" stroke-width="0.5"/>
 
-                    <!-- Front leg: shorter, foreshortened -->
-                    <path d="M102,138 L99,180 L95,182 C91,184 91,180 93,176 L96,138 Z" fill="url(#teeBody)" stroke="#222" stroke-width="0.5"/>
-                    <path d="M118,138 L121,180 L125,182 C129,184 129,180 127,176 L124,138 Z" fill="url(#teeBody)" stroke="#222" stroke-width="0.5"/>
-                    <path d="M99,180 L121,180 L118,138 L102,138 Z" fill="url(#teeBody)"/>
-                    <!-- Front hook tips -->
-                    <path d="M95,182 C91,186 91,190 95,192 C99,192 100,188 99,184 Z" fill="url(#teeBody)" stroke="#222" stroke-width="0.5"/>
-                    <path d="M125,182 C129,186 129,190 125,192 C121,192 120,188 121,184 Z" fill="url(#teeBody)" stroke="#222" stroke-width="0.5"/>
+                    <!-- Front leg (foreshortened, toward viewer) -->
+                    <path d="M92,138 L90,168 L86,172 L94,176 L98,140 Z" fill="url(#teeBody)" stroke="#1a1a1a" stroke-width="0.5"/>
+                    <path d="M108,138 L110,168 L114,172 L106,176 L102,140 Z" fill="url(#teeBody)" stroke="#1a1a1a" stroke-width="0.5"/>
+                    <path d="M92,138 L98,140 L102,140 L108,138 L110,168 L90,168 Z" fill="url(#teeBody)"/>
+                    <!-- Front foot/hooks -->
+                    <path d="M86,172 C82,174 82,178 86,180 C90,180 92,176 90,174 Z" fill="url(#teeBody)" stroke="#1a1a1a" stroke-width="0.5"/>
+                    <path d="M114,172 C118,174 118,178 114,180 C110,180 108,176 110,174 Z" fill="url(#teeBody)" stroke="#1a1a1a" stroke-width="0.5"/>
 
-                    <!-- Hub ring where legs meet cylinder -->
-                    <ellipse cx="110" cy="136" rx="22" ry="8" fill="#1a1a1a" stroke="#222" stroke-width="0.5"/>
+                    <!-- Hub ring at base of cylinder -->
+                    <ellipse cx="100" cy="136" rx="26" ry="8" fill="#181818" stroke="#1a1a1a" stroke-width="0.5"/>
 
-                    <!-- ===== ROPE ATTACHMENT ===== -->
-                    <!-- Short stem -->
-                    <rect x="106" y="180" width="8" height="14" rx="4" fill="url(#teeBody)"/>
+                    <!-- ===== ROPE ===== -->
+                    <!-- Short stem to knot -->
+                    <rect x="96" y="172" width="8" height="12" rx="4" fill="url(#teeBody)"/>
                     <!-- Knot -->
-                    <circle cx="110" cy="200" r="7" fill="#2a2a2a" stroke="#333" stroke-width="0.8"/>
-                    <circle cx="110" cy="200" r="4" fill="#1a1a1a"/>
+                    <circle cx="100" cy="190" r="6" fill="#2a2a2a" stroke="#333" stroke-width="0.8"/>
+                    <circle cx="100" cy="190" r="3.5" fill="#161616"/>
 
-                    <!-- Braided rope hanging down -->
-                    <path d="M110,207 Q112,218 108,228 Q104,238 108,248 Q112,258 108,268 Q104,278 108,288 Q112,298 108,308 Q104,318 108,328 Q112,338 108,350" stroke="#2a2a2a" stroke-width="3" fill="none" stroke-linecap="round"/>
-                    <path d="M110,207 Q108,218 112,228 Q116,238 112,248 Q108,258 112,268 Q116,278 112,288 Q108,298 112,308 Q116,318 112,328 Q108,338 112,350" stroke="#3a3a3a" stroke-width="2" fill="none" stroke-linecap="round"/>
+                    <!-- Braided rope -->
+                    <path d="M100,196 Q102,206 98,216 Q94,226 98,236 Q102,246 98,256 Q94,266 98,276 Q102,286 100,296" stroke="#2a2a2a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                    <path d="M100,196 Q98,206 102,216 Q106,226 102,236 Q98,246 102,256 Q106,266 102,276 Q98,286 100,296" stroke="#383838" stroke-width="1.8" fill="none" stroke-linecap="round"/>
 
                     <!-- Ground shadow -->
-                    <ellipse cx="110" cy="184" rx="55" ry="5" fill="rgba(0,0,0,0.2)"/>
+                    <ellipse cx="100" cy="176" rx="50" ry="4" fill="rgba(0,0,0,0.18)"/>
                 </svg>
             </div>
         </div>
