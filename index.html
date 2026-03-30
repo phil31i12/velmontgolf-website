@@ -1189,19 +1189,34 @@
                     <!-- Cylinder highlight -->
                     <rect x="88" y="35" width="24" height="90" rx="12" fill="url(#teeHighlight)"/>
 
-                    <!-- Three anchor arms extending from cylinder base -->
-                    <!-- Left arm -->
-                    <path d="M80,125 Q65,130 45,145 Q30,158 28,165 Q26,172 32,175 Q38,178 44,172 Q48,168 50,162" fill="url(#teeBody)" stroke="#222" stroke-width="1.5" stroke-linecap="round"/>
-                    <path d="M50,162 Q52,155 48,150" fill="none" stroke="url(#teeBody)" stroke-width="5" stroke-linecap="round"/>
-                    <!-- Right arm -->
-                    <path d="M120,125 Q135,130 155,145 Q170,158 172,165 Q174,172 168,175 Q162,178 156,172 Q152,168 150,162" fill="url(#teeBody)" stroke="#222" stroke-width="1.5" stroke-linecap="round"/>
-                    <path d="M150,162 Q148,155 152,150" fill="none" stroke="url(#teeBody)" stroke-width="5" stroke-linecap="round"/>
-                    <!-- Front/center arm (pointing toward viewer, foreshortened) -->
-                    <path d="M92,132 Q88,142 86,155 Q84,168 86,174 Q88,180 94,180 Q100,180 100,173 Q100,168 98,162" fill="url(#teeBody)" stroke="#222" stroke-width="1.5" stroke-linecap="round"/>
-                    <path d="M98,162 Q96,156 100,152" fill="none" stroke="url(#teeBody)" stroke-width="4.5" stroke-linecap="round"/>
+                    <!-- Hub/junction at cylinder base -->
+                    <ellipse cx="100" cy="128" rx="18" ry="8" fill="#1a1a1a" stroke="#222" stroke-width="0.8"/>
 
-                    <!-- Hub/junction below arms -->
-                    <ellipse cx="100" cy="135" rx="14" ry="6" fill="#1a1a1a" stroke="#222" stroke-width="0.8"/>
+                    <!-- Three thick anchor arms with hooked tips -->
+                    <!-- Left arm: thick flat paddle curving out and down, tip hooks up -->
+                    <path d="M82,126 C72,130 52,140 38,155 C32,162 30,168 34,172 C38,176 44,174 48,168 C52,162 54,155 52,148"
+                          fill="url(#teeBody)" stroke="#222" stroke-width="0.8"/>
+                    <path d="M86,132 C76,136 58,146 44,160 C38,166 36,172 40,175 C44,178 50,175 54,168 C58,161 58,153 55,146"
+                          fill="url(#teeBody)" stroke="#222" stroke-width="0.8"/>
+                    <!-- Left hook tip -->
+                    <path d="M48,168 C44,160 42,152 46,146 C48,143 52,142 54,145" fill="url(#teeBody)" stroke="#222" stroke-width="0.8"/>
+
+                    <!-- Right arm: mirror of left -->
+                    <path d="M118,126 C128,130 148,140 162,155 C168,162 170,168 166,172 C162,176 156,174 152,168 C148,162 146,155 148,148"
+                          fill="url(#teeBody)" stroke="#222" stroke-width="0.8"/>
+                    <path d="M114,132 C124,136 142,146 156,160 C162,166 164,172 160,175 C156,178 150,175 146,168 C142,161 142,153 145,146"
+                          fill="url(#teeBody)" stroke="#222" stroke-width="0.8"/>
+                    <!-- Right hook tip -->
+                    <path d="M152,168 C156,160 158,152 154,146 C152,143 148,142 146,145" fill="url(#teeBody)" stroke="#222" stroke-width="0.8"/>
+
+                    <!-- Front/center arm: foreshortened, pointing toward viewer -->
+                    <path d="M90,132 C86,140 82,152 82,164 C82,172 86,178 92,178 C96,178 98,174 98,168 C98,162 96,154 94,146"
+                          fill="url(#teeBody)" stroke="#222" stroke-width="0.8"/>
+                    <path d="M110,132 C114,140 116,152 116,164 C116,172 112,178 106,178 C102,178 100,174 100,168 C100,162 102,154 104,146"
+                          fill="url(#teeBody)" stroke="#222" stroke-width="0.8"/>
+                    <!-- Front hook tip -->
+                    <path d="M92,178 C88,172 86,164 90,158 C92,155 96,154 98,158" fill="url(#teeBody)" stroke="#222" stroke-width="0.8"/>
+                    <path d="M106,178 C110,172 112,164 108,158 C106,155 102,154 100,158" fill="url(#teeBody)" stroke="#222" stroke-width="0.8"/>
 
                     <!-- Rope knot -->
                     <circle cx="100" cy="198" r="7" fill="#2a2a2a" stroke="#333" stroke-width="0.8"/>
