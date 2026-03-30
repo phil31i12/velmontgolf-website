@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Short (34mm) — Velmont Golf</title>
+    <meta name="description" content="Velmont Golf Tee Short — 34mm Hoehe, perfekt fuer praezise Eisen- und Hybridschlaege. Made in Germany.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-primary: #FAF9F6;
+            --bg-dark: #1a1a1a;
+            --bg-cream: #F5F0EB;
+            --bg-sage: #E8E6E1;
+            --text-primary: #1a1a1a;
+            --text-secondary: #5a5a5a;
+            --text-light: #FAF9F6;
+            --gold: #C4A265;
+            --border: #e0ddd8;
+            --font-body: 'Inter', sans-serif;
+            --font-display: 'Playfair Display', serif;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body); color: var(--text-primary);
+            background: var(--bg-primary); line-height: 1.6;
+            -webkit-font-smoothing: antialiased; overflow-x: hidden;
+        }
+
+        /* ─── NAV ─── */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            padding: 1.25rem 2.5rem;
+            display: flex; justify-content: space-between; align-items: center;
+            background: rgba(250,249,246,0.95);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 1px 0 var(--border);
+        }
+
+        .nav-logo {
+            font-family: var(--font-display); font-size: 1.35rem; font-weight: 500;
+            letter-spacing: 0.03em; color: var(--text-primary); text-decoration: none;
+        }
+
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+
+        .nav-links a {
+            font-size: 0.8rem; font-weight: 400; letter-spacing: 0.12em;
+            text-transform: uppercase; text-decoration: none; color: var(--text-secondary);
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover { color: var(--gold); }
+
+        .nav-cta {
+            font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em;
+            text-transform: uppercase; text-decoration: none;
+            color: var(--text-primary); border: 1px solid var(--text-primary);
+            padding: 0.6rem 1.5rem; transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover { background: var(--text-primary); color: var(--text-light); }
+
+        .nav-mobile-toggle {
+            display: none; flex-direction: column; gap: 5px;
+            cursor: pointer; background: none; border: none; padding: 4px;
+        }
+
+        .nav-mobile-toggle span { width: 22px; height: 1.5px; background: var(--text-primary); }
+
+        .mobile-menu {
+            position: fixed; inset: 0; background: rgba(26,26,26,0.97);
+            backdrop-filter: blur(20px); z-index: 99;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 2rem;
+            opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+        }
+
+        .mobile-menu.open { opacity: 1; pointer-events: all; }
+
+        .mobile-menu a {
+            font-family: var(--font-display); font-size: 1.5rem; font-weight: 400;
+            text-decoration: none; color: var(--text-light);
+        }
+
+        .mobile-menu-close {
+            position: absolute; top: 1.25rem; right: 1.5rem;
+            background: none; border: none; color: var(--text-light); font-size: 1.5rem; cursor: pointer;
+        }
+
+        /* ─── BREADCRUMB ─── */
+        .breadcrumb {
+            padding: 6.5rem 2.5rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb a, .breadcrumb span {
+            font-size: 0.7rem;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover { color: var(--gold); }
+
+        .breadcrumb .sep { margin: 0 0.5rem; opacity: 0.4; }
+
+        .breadcrumb .current { color: var(--text-primary); }
+
+        /* ─── PRODUCT HERO ─── */
+        .product-hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2.5rem 2.5rem 5rem;
+            align-items: start;
+        }
+
+        /* Image Gallery */
+        .product-gallery {
+            position: sticky;
+            top: 6rem;
+        }
+
+        .gallery-main {
+            position: relative;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #f8f8f5 0%, #f0eeea 100%);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            margin-bottom: 1rem;
+            cursor: zoom-in;
+        }
+
+        .gallery-main img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 2rem;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-main:hover img {
+            transform: scale(1.15);
+        }
+
+        .gallery-main-badge {
+            position: absolute;
+            top: 1.25rem;
+            left: 1.25rem;
+            background: var(--text-primary);
+            color: var(--text-light);
+            font-size: 0.6rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 0.4rem 0.8rem;
+        }
+
+        .gallery-thumbs {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.75rem;
+        }
+
+        .gallery-thumb {
+            aspect-ratio: 1;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+        }
+
+        .gallery-thumb:hover, .gallery-thumb.active {
+            border-color: var(--gold);
+        }
+
+        .gallery-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Product Info */
+        .product-info {
+            padding-top: 1rem;
+        }
+
+        .product-label {
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.75rem;
+        }
+
+        .product-name {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 400;
+            line-height: 1.15;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-subtitle {
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .product-description {
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            max-width: 460px;
+        }
+
+        /* Height Indicator */
+        .height-indicator {
+            display: flex;
+            align-items: flex-end;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+            padding: 1.5rem 0;
+        }
+
+        .height-visual {
+            display: flex;
+            align-items: flex-end;
+            gap: 0.6rem;
+        }
+
+        .height-bar {
+            width: 4px;
+            border-radius: 2px;
+            background: var(--border);
+            transition: background 0.3s ease;
+        }
+
+        .height-bar.active {
+            background: var(--gold);
+            box-shadow: 0 0 8px rgba(196, 162, 101, 0.3);
+        }
+
+        .height-bar.h34 { height: 40px; }
+        .height-bar.h36 { height: 48px; }
+        .height-bar.h38 { height: 56px; }
+
+        .height-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .height-value {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 400;
+            line-height: 1;
+        }
+
+        .height-unit {
+            font-size: 0.7rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+            letter-spacing: 0.05em;
+        }
+
+        /* Color Selection */
+        .color-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .color-section-label {
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+        }
+
+        .color-options {
+            display: flex;
+            gap: 0.6rem;
+        }
+
+        .color-opt {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .color-opt:hover { transform: scale(1.1); }
+
+        .color-opt.selected {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 2px var(--bg-primary), 0 0 0 4px var(--gold);
+        }
+
+        .color-opt.c-black { background: #1a1a1a; }
+        .color-opt.c-silver { background: #A8A9AD; }
+        .color-opt.c-gold { background: #C4A265; }
+        .color-opt.c-red { background: #8B2D3A; }
+        .color-opt.c-blue { background: #2B4F81; }
+
+        .color-name {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+
+        /* CTA Button */
+        .product-cta {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            text-decoration: none;
+            background: var(--text-primary);
+            color: var(--text-light);
+            padding: 1.1rem 3rem;
+            transition: all 0.3s ease;
+            border: 1px solid var(--text-primary);
+            margin-bottom: 2rem;
+            width: 100%;
+            text-align: center;
+        }
+
+        .product-cta:hover {
+            background: transparent;
+            color: var(--text-primary);
+        }
+
+        /* ─── SPECS TABLE ─── */
+        .specs-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2.5rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .specs-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .specs-header h2 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 400;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            border: 1px solid var(--border);
+        }
+
+        .spec-card {
+            padding: 2rem 1.5rem;
+            text-align: center;
+            border-right: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .spec-card:nth-child(4n) { border-right: none; }
+        .spec-card:nth-last-child(-n+4) { border-bottom: none; }
+
+        .spec-card-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        .spec-card-label {
+            font-size: 0.6rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 0.35rem;
+        }
+
+        .spec-card-value {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 400;
+        }
+
+        /* ─── LIFESTYLE SECTION ─── */
+        .lifestyle {
+            background: var(--bg-dark);
+            color: var(--text-light);
+            padding: 6rem 2.5rem;
+        }
+
+        .lifestyle-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .lifestyle-img {
+            aspect-ratio: 4/3;
+            overflow: hidden;
+        }
+
+        .lifestyle-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .lifestyle-img:hover img {
+            transform: scale(1.05);
+        }
+
+        /* ─── OTHER SIZES ─── */
+        .other-sizes {
+            padding: 6rem 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .other-sizes-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .other-sizes-header h2 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 400;
+        }
+
+        .other-sizes-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .other-size-card {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .other-size-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+        }
+
+        .other-size-card img {
+            width: 70px;
+            height: 90px;
+            object-fit: contain;
+        }
+
+        .other-size-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 400;
+            margin-bottom: 0.15rem;
+        }
+
+        .other-size-card p {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            background: var(--bg-dark); color: rgba(250,249,246,0.4);
+            padding: 3.5rem 2.5rem;
+        }
+
+        .footer-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+
+        .footer-logo {
+            font-family: var(--font-display); font-size: 1.1rem; font-weight: 500;
+            color: rgba(250,249,246,0.7);
+        }
+
+        .footer-links { display: flex; gap: 2rem; list-style: none; }
+
+        .footer-links a {
+            font-size: 0.75rem; letter-spacing: 0.08em; text-decoration: none;
+            color: rgba(250,249,246,0.4); transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover { color: var(--gold); }
+
+        .footer-copy { font-size: 0.7rem; letter-spacing: 0.05em; }
+
+        /* ─── ANIMATIONS ─── */
+        .reveal {
+            opacity: 0; transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 900px) {
+            nav { padding: 1rem 1.5rem; }
+            .nav-links, .nav-cta { display: none; }
+            .nav-mobile-toggle { display: flex; }
+            .product-hero { grid-template-columns: 1fr; gap: 2rem; padding-top: 1.5rem; }
+            .product-gallery { position: relative; top: 0; }
+            .specs-grid { grid-template-columns: repeat(2, 1fr); }
+            .specs-grid .spec-card:nth-child(2n) { border-right: none; }
+            .specs-grid .spec-card:nth-child(4n) { border-right: 1px solid var(--border); }
+            .lifestyle-inner { grid-template-columns: 1fr; }
+            .other-sizes-grid { grid-template-columns: 1fr; }
+            .footer-inner { flex-direction: column; gap: 1.5rem; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Nav -->
+    <nav>
+        <a href="index.html" class="nav-logo">Velmont Golf</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="produkte.html" style="color: var(--gold);">Produkte</a></li>
+            <li><a href="index.html#features">Vorteile</a></li>
+            <li><a href="index.html#verpackung">Verpackung</a></li>
+        </ul>
+        <a href="https://7ccjau-pn.myshopify.com" class="nav-cta" target="_blank">Jetzt bestellen</a>
+        <button class="nav-mobile-toggle" onclick="toggleMobileMenu()" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu-close" onclick="toggleMobileMenu()" aria-label="Close">&times;</button>
+        <a href="index.html">Home</a>
+        <a href="produkte.html">Produkte</a>
+        <a href="index.html#features">Vorteile</a>
+        <a href="https://7ccjau-pn.myshopify.com" target="_blank">Jetzt bestellen</a>
+    </div>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="sep">/</span>
+        <a href="produkte.html">Produkte</a>
+        <span class="sep">/</span>
+        <span class="current">Short (34mm)</span>
+    </div>
+
+    <!-- Product Hero -->
+    <section class="product-hero">
+        <div class="product-gallery">
+            <div class="gallery-main" id="mainImage">
+                <img src="img/tee-34mm.jpg" alt="Velmont Golf Tee Short 34mm" id="mainImg">
+                <span class="gallery-main-badge">Short</span>
+            </div>
+            <div class="gallery-thumbs">
+                <div class="gallery-thumb active" onclick="changeImage('img/tee-34mm.jpg', this)">
+                    <img src="img/tee-34mm.jpg" alt="Produktansicht">
+                </div>
+                <div class="gallery-thumb" onclick="changeImage('img/tee-grass.jpg', this)">
+                    <img src="img/tee-grass.jpg" alt="Auf dem Gruen">
+                </div>
+                <div class="gallery-thumb" onclick="changeImage('img/tee-lifestyle.jpg', this)">
+                    <img src="img/tee-lifestyle.jpg" alt="Lifestyle">
+                </div>
+                <div class="gallery-thumb" onclick="changeImage('img/box.png', this)">
+                    <img src="img/box.png" alt="Verpackung">
+                </div>
+            </div>
+        </div>
+
+        <div class="product-info">
+            <p class="product-label">Velmont Golf Tee</p>
+            <h1 class="product-name">Short</h1>
+            <p class="product-subtitle">Praezision fuer Eisen &amp; Hybrid</p>
+
+            <p class="product-description">
+                Das Short Tee mit 34mm Hoehe eignet sich ideal fuer Eisen und Hybridschlaeger.
+                Die niedrige Aufteehöhe ermoeglicht eine saubere Ballkontrolle und praezise Schlaege
+                bei kurzen bis mittleren Distanzen. Befestigt an einer geflochtenen Kordel,
+                damit es immer griffbereit bleibt.
+            </p>
+
+            <!-- Height Indicator -->
+            <div class="height-indicator">
+                <div class="height-visual">
+                    <div class="height-bar h34 active"></div>
+                    <div class="height-bar h36"></div>
+                    <div class="height-bar h38"></div>
+                </div>
+                <div class="height-info">
+                    <span class="height-value">34</span>
+                    <span class="height-unit">Millimeter</span>
+                </div>
+            </div>
+
+            <!-- Color Selection -->
+            <div class="color-section">
+                <p class="color-section-label">Farbe waehlen</p>
+                <div class="color-options">
+                    <div class="color-opt c-black selected" onclick="selectColor(this, 'Schwarz')"></div>
+                    <div class="color-opt c-silver" onclick="selectColor(this, 'Silber')"></div>
+                    <div class="color-opt c-gold" onclick="selectColor(this, 'Gold')"></div>
+                    <div class="color-opt c-red" onclick="selectColor(this, 'Rot')"></div>
+                    <div class="color-opt c-blue" onclick="selectColor(this, 'Blau')"></div>
+                </div>
+                <p class="color-name" id="colorName">Schwarz</p>
+            </div>
+
+            <a href="https://7ccjau-pn.myshopify.com" class="product-cta" target="_blank">Im Shop bestellen</a>
+
+            <!-- Made in Germany -->
+            <div style="display: flex; align-items: center; gap: 0.75rem; padding-top: 1rem; border-top: 1px solid var(--border);">
+                <img src="img/made-in-germany.png" alt="Made in Germany" style="width: 40px;">
+                <span style="font-size: 0.75rem; color: var(--text-secondary); font-weight: 300;">Entwickelt &amp; produziert in Deutschland</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specs -->
+    <section class="specs-section reveal">
+        <div class="specs-header">
+            <p class="product-label" style="text-align: center;">Spezifikationen</p>
+            <h2>Im Detail</h2>
+        </div>
+        <div class="specs-grid">
+            <div class="spec-card">
+                <span class="spec-card-icon">&#8597;</span>
+                <p class="spec-card-label">Hoehe</p>
+                <p class="spec-card-value">34 mm</p>
+            </div>
+            <div class="spec-card">
+                <span class="spec-card-icon">&#9830;</span>
+                <p class="spec-card-label">Material</p>
+                <p class="spec-card-value">Hochfest</p>
+            </div>
+            <div class="spec-card">
+                <span class="spec-card-icon">&#127912;</span>
+                <p class="spec-card-label">Farben</p>
+                <p class="spec-card-value">5 Optionen</p>
+            </div>
+            <div class="spec-card">
+                <span class="spec-card-icon">&#9875;</span>
+                <p class="spec-card-label">Kordel</p>
+                <p class="spec-card-value">Geflochten</p>
+            </div>
+            <div class="spec-card">
+                <span class="spec-card-icon">&#9851;</span>
+                <p class="spec-card-label">Lebensdauer</p>
+                <p class="spec-card-value">1000+ Runden</p>
+            </div>
+            <div class="spec-card">
+                <span class="spec-card-icon">&#9878;</span>
+                <p class="spec-card-label">Empfohlen fuer</p>
+                <p class="spec-card-value">Eisen / Hybrid</p>
+            </div>
+            <div class="spec-card">
+                <span class="spec-card-icon">&#127758;</span>
+                <p class="spec-card-label">Herkunft</p>
+                <p class="spec-card-value">Deutschland</p>
+            </div>
+            <div class="spec-card">
+                <span class="spec-card-icon">&#127873;</span>
+                <p class="spec-card-label">Verpackung</p>
+                <p class="spec-card-value">Premium Box</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lifestyle Images -->
+    <section class="lifestyle">
+        <div class="lifestyle-inner">
+            <div class="lifestyle-img reveal">
+                <img src="img/tee-action.jpg" alt="Velmont Golf Tee auf der Range" loading="lazy">
+            </div>
+            <div class="lifestyle-img reveal">
+                <img src="img/tee-turf-2.jpg" alt="Velmont Golf Tee im Einsatz" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- Other Sizes -->
+    <section class="other-sizes">
+        <div class="other-sizes-header">
+            <p class="product-label" style="text-align:center;">Andere Groessen</p>
+            <h2>Passt nicht? Probier diese.</h2>
+        </div>
+        <div class="other-sizes-grid">
+            <a href="produkt-medium.html" class="other-size-card">
+                <img src="img/tee-36mm.jpg" alt="Medium 36mm">
+                <div>
+                    <h3>Medium</h3>
+                    <p>36mm — Der Allrounder</p>
+                </div>
+            </a>
+            <a href="produkt-tall.html" class="other-size-card">
+                <img src="img/tee-38mm.jpg" alt="Tall 38mm">
+                <div>
+                    <h3>Tall</h3>
+                    <p>38mm — Maximale Driver-Hoehe</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-logo">Velmont Golf</div>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="produkte.html">Produkte</a></li>
+                <li><a href="https://7ccjau-pn.myshopify.com" target="_blank">Shop</a></li>
+                <li><a href="mailto:velmontgolfde@gmail.com">Kontakt</a></li>
+            </ul>
+            <p class="footer-copy">&copy; 2026 Velmont Golf</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('open');
+        }
+
+        function changeImage(src, thumb) {
+            document.getElementById('mainImg').src = src;
+            document.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('active'));
+            thumb.classList.add('active');
+        }
+
+        function selectColor(el, name) {
+            document.querySelectorAll('.color-opt').forEach(c => c.classList.remove('selected'));
+            el.classList.add('selected');
+            document.getElementById('colorName').textContent = name;
+        }
+
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+            });
+        }, { threshold: 0.15 });
+        reveals.forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

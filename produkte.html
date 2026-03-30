@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produkte — Velmont Golf</title>
+    <meta name="description" content="Velmont Golf Tees in drei Groessen: Short (34mm), Medium (36mm) und Tall (38mm). Finde das perfekte Tee fuer dein Spiel.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-primary: #FAF9F6;
+            --bg-dark: #1a1a1a;
+            --bg-cream: #F5F0EB;
+            --text-primary: #1a1a1a;
+            --text-secondary: #5a5a5a;
+            --text-light: #FAF9F6;
+            --gold: #C4A265;
+            --border: #e0ddd8;
+            --font-body: 'Inter', sans-serif;
+            --font-display: 'Playfair Display', serif;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* ─── NAV ─── */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            padding: 1.25rem 2.5rem;
+            display: flex; justify-content: space-between; align-items: center;
+            background: rgba(250, 249, 246, 0.95);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 1px 0 var(--border);
+        }
+
+        .nav-logo {
+            font-family: var(--font-display); font-size: 1.35rem; font-weight: 500;
+            letter-spacing: 0.03em; color: var(--text-primary); text-decoration: none;
+        }
+
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+
+        .nav-links a {
+            font-size: 0.8rem; font-weight: 400; letter-spacing: 0.12em;
+            text-transform: uppercase; text-decoration: none; color: var(--text-secondary);
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover { color: var(--gold); }
+
+        .nav-cta {
+            font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em;
+            text-transform: uppercase; text-decoration: none;
+            color: var(--text-primary); border: 1px solid var(--text-primary);
+            padding: 0.6rem 1.5rem; transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover { background: var(--text-primary); color: var(--text-light); }
+
+        .nav-mobile-toggle {
+            display: none; flex-direction: column; gap: 5px;
+            cursor: pointer; background: none; border: none; padding: 4px;
+        }
+
+        .nav-mobile-toggle span { width: 22px; height: 1.5px; background: var(--text-primary); }
+
+        .mobile-menu {
+            position: fixed; inset: 0; background: rgba(26,26,26,0.97);
+            backdrop-filter: blur(20px); z-index: 99;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 2rem;
+            opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+        }
+
+        .mobile-menu.open { opacity: 1; pointer-events: all; }
+
+        .mobile-menu a {
+            font-family: var(--font-display); font-size: 1.5rem; font-weight: 400;
+            text-decoration: none; color: var(--text-light); transition: color 0.3s ease;
+        }
+
+        .mobile-menu a:hover { color: var(--gold); }
+
+        .mobile-menu-close {
+            position: absolute; top: 1.25rem; right: 1.5rem;
+            background: none; border: none; color: var(--text-light); font-size: 1.5rem; cursor: pointer;
+        }
+
+        /* ─── PAGE HEADER ─── */
+        .page-header {
+            padding: 10rem 2.5rem 5rem;
+            text-align: center;
+            background: var(--bg-cream);
+        }
+
+        .page-header-label {
+            font-size: 0.65rem; font-weight: 500; letter-spacing: 0.25em;
+            text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem;
+        }
+
+        .page-header h1 {
+            font-family: var(--font-display); font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+            font-weight: 400; line-height: 1.2; margin-bottom: 1.25rem;
+        }
+
+        .page-header p {
+            font-size: 1rem; font-weight: 300; color: var(--text-secondary);
+            max-width: 500px; margin: 0 auto; line-height: 1.7;
+        }
+
+        /* ─── SIZE COMPARISON ─── */
+        .size-compare {
+            padding: 5rem 2.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .compare-visual {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 3rem;
+            padding: 3rem 0;
+        }
+
+        .compare-bar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .bar-stick {
+            width: 3px;
+            background: linear-gradient(to top, var(--gold), var(--text-primary));
+            border-radius: 2px;
+            position: relative;
+            transition: height 0.6s ease;
+        }
+
+        .bar-stick::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--text-primary);
+        }
+
+        .bar-34 .bar-stick { height: 100px; }
+        .bar-36 .bar-stick { height: 120px; }
+        .bar-38 .bar-stick { height: 140px; }
+
+        .bar-label {
+            font-size: 0.65rem; font-weight: 500; letter-spacing: 0.15em;
+            text-transform: uppercase; color: var(--text-secondary);
+        }
+
+        .bar-size {
+            font-family: var(--font-display); font-size: 1.5rem; font-weight: 400;
+        }
+
+        .compare-title {
+            text-align: center;
+            font-family: var(--font-display); font-size: 1.1rem; font-weight: 400;
+            color: var(--text-secondary); margin-bottom: 1rem;
+        }
+
+        /* ─── PRODUCT CARDS ─── */
+        .products-section {
+            padding: 2rem 2.5rem 7rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .product-card {
+            position: relative;
+            background: #fff;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.1);
+        }
+
+        .product-card-image {
+            position: relative;
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            background: #f8f8f5;
+        }
+
+        .product-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 2rem;
+            transition: transform 0.6s ease;
+        }
+
+        .product-card:hover .product-card-image img {
+            transform: scale(1.05);
+        }
+
+        .product-card-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            font-size: 0.6rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            background: var(--text-primary);
+            color: var(--text-light);
+            padding: 0.35rem 0.75rem;
+        }
+
+        .product-card-info {
+            padding: 1.5rem;
+        }
+
+        .product-card-name {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 400;
+            margin-bottom: 0.3rem;
+        }
+
+        .product-card-sub {
+            font-size: 0.8rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .product-card-specs {
+            display: flex;
+            gap: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .spec-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+        }
+
+        .spec-label {
+            font-size: 0.6rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+        }
+
+        .spec-value {
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .product-card-arrow {
+            position: absolute;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            width: 32px;
+            height: 32px;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover .product-card-arrow {
+            background: var(--text-primary);
+            color: var(--text-light);
+            border-color: var(--text-primary);
+        }
+
+        /* ─── USE CASES ─── */
+        .use-cases {
+            background: var(--bg-dark);
+            color: var(--text-light);
+            padding: 6rem 2.5rem;
+        }
+
+        .use-cases-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .use-cases h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        .use-cases > .use-cases-inner > p {
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: rgba(250,249,246,0.55);
+            margin-bottom: 3.5rem;
+        }
+
+        .use-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .use-item {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 1;
+        }
+
+        .use-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .use-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .use-item-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
+            display: flex;
+            align-items: flex-end;
+            padding: 1.25rem;
+        }
+
+        .use-item-text {
+            font-size: 0.75rem;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            color: rgba(250,249,246,0.85);
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            background: var(--bg-dark);
+            color: rgba(250, 249, 246, 0.4);
+            padding: 3.5rem 2.5rem;
+            border-top: 1px solid rgba(250,249,246,0.08);
+        }
+
+        .footer-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+
+        .footer-logo {
+            font-family: var(--font-display); font-size: 1.1rem; font-weight: 500;
+            color: rgba(250, 249, 246, 0.7);
+        }
+
+        .footer-links { display: flex; gap: 2rem; list-style: none; }
+
+        .footer-links a {
+            font-size: 0.75rem; letter-spacing: 0.08em; text-decoration: none;
+            color: rgba(250, 249, 246, 0.4); transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover { color: var(--gold); }
+
+        .footer-copy { font-size: 0.7rem; letter-spacing: 0.05em; }
+
+        /* ─── ANIMATIONS ─── */
+        .reveal {
+            opacity: 0; transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 900px) {
+            nav { padding: 1rem 1.5rem; }
+            .nav-links, .nav-cta { display: none; }
+            .nav-mobile-toggle { display: flex; }
+            .product-cards { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+            .use-grid { grid-template-columns: 1fr; }
+            .compare-visual { gap: 2rem; }
+            .footer-inner { flex-direction: column; gap: 1.5rem; text-align: center; }
+        }
+
+        @media (max-width: 600px) {
+            .page-header { padding: 8rem 1.5rem 3.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Nav -->
+    <nav>
+        <a href="index.html" class="nav-logo">Velmont Golf</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="produkte.html" style="color: var(--gold);">Produkte</a></li>
+            <li><a href="index.html#features">Vorteile</a></li>
+            <li><a href="index.html#verpackung">Verpackung</a></li>
+        </ul>
+        <a href="https://7ccjau-pn.myshopify.com" class="nav-cta" target="_blank">Jetzt bestellen</a>
+        <button class="nav-mobile-toggle" onclick="toggleMobileMenu()" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu-close" onclick="toggleMobileMenu()" aria-label="Close">&times;</button>
+        <a href="index.html" onclick="toggleMobileMenu()">Home</a>
+        <a href="produkte.html" onclick="toggleMobileMenu()">Produkte</a>
+        <a href="index.html#features" onclick="toggleMobileMenu()">Vorteile</a>
+        <a href="index.html#verpackung" onclick="toggleMobileMenu()">Verpackung</a>
+        <a href="https://7ccjau-pn.myshopify.com" target="_blank">Jetzt bestellen</a>
+    </div>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <p class="page-header-label">Kollektion</p>
+        <h1>Finde dein Tee</h1>
+        <p>Drei Hoehen, fuenf Farben, ein Ziel: das perfekte Setup fuer deinen Abschlag.</p>
+    </header>
+
+    <!-- Size Comparison Visual -->
+    <div class="size-compare reveal">
+        <p class="compare-title">Groessenvergleich</p>
+        <div class="compare-visual">
+            <div class="compare-bar bar-34">
+                <div class="bar-stick"></div>
+                <span class="bar-size">34<small>mm</small></span>
+                <span class="bar-label">Short</span>
+            </div>
+            <div class="compare-bar bar-36">
+                <div class="bar-stick"></div>
+                <span class="bar-size">36<small>mm</small></span>
+                <span class="bar-label">Medium</span>
+            </div>
+            <div class="compare-bar bar-38">
+                <div class="bar-stick"></div>
+                <span class="bar-size">38<small>mm</small></span>
+                <span class="bar-label">Tall</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Cards -->
+    <section class="products-section">
+        <div class="product-cards">
+            <a href="produkt-short.html" class="product-card reveal reveal-delay-1">
+                <div class="product-card-image">
+                    <img src="img/tee-34mm.jpg" alt="Velmont Golf Tee Short 34mm">
+                    <span class="product-card-badge">Praezision</span>
+                </div>
+                <div class="product-card-info">
+                    <h2 class="product-card-name">Short</h2>
+                    <p class="product-card-sub">Fuer Eisen &amp; Hybrid</p>
+                    <div class="product-card-specs">
+                        <div class="spec-item">
+                            <span class="spec-label">Hoehe</span>
+                            <span class="spec-value">34 mm</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Farben</span>
+                            <span class="spec-value">5</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Material</span>
+                            <span class="spec-value">Premium</span>
+                        </div>
+                    </div>
+                </div>
+                <span class="product-card-arrow">&rarr;</span>
+            </a>
+
+            <a href="produkt-medium.html" class="product-card reveal reveal-delay-2">
+                <div class="product-card-image">
+                    <img src="img/tee-36mm.jpg" alt="Velmont Golf Tee Medium 36mm">
+                    <span class="product-card-badge">Allrounder</span>
+                </div>
+                <div class="product-card-info">
+                    <h2 class="product-card-name">Medium</h2>
+                    <p class="product-card-sub">Der vielseitige Klassiker</p>
+                    <div class="product-card-specs">
+                        <div class="spec-item">
+                            <span class="spec-label">Hoehe</span>
+                            <span class="spec-value">36 mm</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Farben</span>
+                            <span class="spec-value">5</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Material</span>
+                            <span class="spec-value">Premium</span>
+                        </div>
+                    </div>
+                </div>
+                <span class="product-card-arrow">&rarr;</span>
+            </a>
+
+            <a href="produkt-tall.html" class="product-card reveal reveal-delay-3">
+                <div class="product-card-image">
+                    <img src="img/tee-38mm.jpg" alt="Velmont Golf Tee Tall 38mm">
+                    <span class="product-card-badge">Power</span>
+                </div>
+                <div class="product-card-info">
+                    <h2 class="product-card-name">Tall</h2>
+                    <p class="product-card-sub">Maximale Driver-Hoehe</p>
+                    <div class="product-card-specs">
+                        <div class="spec-item">
+                            <span class="spec-label">Hoehe</span>
+                            <span class="spec-value">38 mm</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Farben</span>
+                            <span class="spec-value">5</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Material</span>
+                            <span class="spec-value">Premium</span>
+                        </div>
+                    </div>
+                </div>
+                <span class="product-card-arrow">&rarr;</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section class="use-cases">
+        <div class="use-cases-inner">
+            <p class="page-header-label" style="color: var(--gold);">In Aktion</p>
+            <h2>Gebaut fuer den Platz</h2>
+            <p style="font-size: 0.9rem; font-weight: 300; color: rgba(250,249,246,0.55); margin-bottom: 3.5rem;">
+                Von der Driving Range bis zum 18. Loch &mdash; das Velmont Tee ist dein zuverlaessiger Begleiter.
+            </p>
+            <div class="use-grid">
+                <div class="use-item reveal reveal-delay-1">
+                    <img src="img/tee-action.jpg" alt="Driving Range" loading="lazy">
+                    <div class="use-item-overlay">
+                        <span class="use-item-text">Driving Range</span>
+                    </div>
+                </div>
+                <div class="use-item reveal reveal-delay-2">
+                    <img src="img/tee-grass.jpg" alt="Auf dem Gruen" loading="lazy">
+                    <div class="use-item-overlay">
+                        <span class="use-item-text">Auf dem Gruen</span>
+                    </div>
+                </div>
+                <div class="use-item reveal reveal-delay-3">
+                    <img src="img/tee-lifestyle.jpg" alt="Lifestyle" loading="lazy">
+                    <div class="use-item-overlay">
+                        <span class="use-item-text">Lifestyle</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-logo">Velmont Golf</div>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="produkte.html">Produkte</a></li>
+                <li><a href="https://7ccjau-pn.myshopify.com" target="_blank">Shop</a></li>
+                <li><a href="mailto:velmontgolfde@gmail.com">Kontakt</a></li>
+            </ul>
+            <p class="footer-copy">&copy; 2026 Velmont Golf</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('open');
+        }
+
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+        reveals.forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
