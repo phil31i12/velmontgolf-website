@@ -1176,34 +1176,6 @@
                         </radialGradient>
                     </defs>
 
-                    <!-- ===== GOLF BALL ===== -->
-                    <!-- r=72, cx=100 (centered on cup). Bottom of ball at y=68 (cup rim), so cy=68-72=-4 -->
-                    <circle cx="100" cy="-4" r="72" fill="url(#ballGrad)"/>
-                    <!-- Dimple pattern (larger, spread across ball) -->
-                    <circle cx="76" cy="-28" r="3.5" fill="rgba(190,190,190,0.4)"/>
-                    <circle cx="88" cy="-36" r="3.5" fill="rgba(190,190,190,0.4)"/>
-                    <circle cx="100" cy="-40" r="3.5" fill="rgba(190,190,190,0.4)"/>
-                    <circle cx="112" cy="-36" r="3.5" fill="rgba(190,190,190,0.4)"/>
-                    <circle cx="124" cy="-28" r="3.5" fill="rgba(190,190,190,0.4)"/>
-                    <circle cx="72" cy="-14" r="3.5" fill="rgba(190,190,190,0.35)"/>
-                    <circle cx="84" cy="-22" r="3.5" fill="rgba(190,190,190,0.35)"/>
-                    <circle cx="96" cy="-26" r="3.5" fill="rgba(190,190,190,0.35)"/>
-                    <circle cx="108" cy="-24" r="3.5" fill="rgba(190,190,190,0.35)"/>
-                    <circle cx="120" cy="-18" r="3.5" fill="rgba(190,190,190,0.35)"/>
-                    <circle cx="130" cy="-10" r="3.5" fill="rgba(190,190,190,0.35)"/>
-                    <circle cx="78" cy="-4" r="3" fill="rgba(190,190,190,0.3)"/>
-                    <circle cx="90" cy="-10" r="3" fill="rgba(190,190,190,0.3)"/>
-                    <circle cx="100" cy="-12" r="3" fill="rgba(190,190,190,0.3)"/>
-                    <circle cx="110" cy="-10" r="3" fill="rgba(190,190,190,0.3)"/>
-                    <circle cx="122" cy="-4" r="3" fill="rgba(190,190,190,0.3)"/>
-                    <circle cx="84" cy="8" r="2.8" fill="rgba(190,190,190,0.25)"/>
-                    <circle cx="96" cy="4" r="2.8" fill="rgba(190,190,190,0.25)"/>
-                    <circle cx="108" cy="4" r="2.8" fill="rgba(190,190,190,0.25)"/>
-                    <circle cx="118" cy="10" r="2.8" fill="rgba(190,190,190,0.25)"/>
-                    <circle cx="100" cy="-52" r="3" fill="rgba(190,190,190,0.45)"/>
-                    <circle cx="88" cy="-48" r="3" fill="rgba(190,190,190,0.4)"/>
-                    <circle cx="112" cy="-48" r="3" fill="rgba(190,190,190,0.4)"/>
-
                     <!-- ===== CYLINDER CUP (wider, shorter) ===== -->
                     <!-- Cylinder body: wider (60px) and shorter -->
                     <path d="M70,68 L70,130 Q70,136 76,138 L124,138 Q130,136 130,130 L130,68" fill="url(#teeBody)" stroke="#1a1a1a" stroke-width="0.8"/>
@@ -1245,10 +1217,34 @@
                     <!-- Hub ring at base of cylinder -->
                     <ellipse cx="100" cy="136" rx="26" ry="8" fill="#181818" stroke="#1a1a1a" stroke-width="0.5"/>
 
-                    <!-- Rope removed -->
-
                     <!-- Ground shadow -->
                     <ellipse cx="100" cy="176" rx="50" ry="4" fill="rgba(0,0,0,0.18)"/>
+
+                    <!-- ===== GOLF BALL (drawn last = on top of cup rim) ===== -->
+                    <circle cx="100" cy="-4" r="72" fill="url(#ballGrad)"/>
+                    <circle cx="76" cy="-28" r="3.5" fill="rgba(190,190,190,0.4)"/>
+                    <circle cx="88" cy="-36" r="3.5" fill="rgba(190,190,190,0.4)"/>
+                    <circle cx="100" cy="-40" r="3.5" fill="rgba(190,190,190,0.4)"/>
+                    <circle cx="112" cy="-36" r="3.5" fill="rgba(190,190,190,0.4)"/>
+                    <circle cx="124" cy="-28" r="3.5" fill="rgba(190,190,190,0.4)"/>
+                    <circle cx="72" cy="-14" r="3.5" fill="rgba(190,190,190,0.35)"/>
+                    <circle cx="84" cy="-22" r="3.5" fill="rgba(190,190,190,0.35)"/>
+                    <circle cx="96" cy="-26" r="3.5" fill="rgba(190,190,190,0.35)"/>
+                    <circle cx="108" cy="-24" r="3.5" fill="rgba(190,190,190,0.35)"/>
+                    <circle cx="120" cy="-18" r="3.5" fill="rgba(190,190,190,0.35)"/>
+                    <circle cx="130" cy="-10" r="3.5" fill="rgba(190,190,190,0.35)"/>
+                    <circle cx="78" cy="-4" r="3" fill="rgba(190,190,190,0.3)"/>
+                    <circle cx="90" cy="-10" r="3" fill="rgba(190,190,190,0.3)"/>
+                    <circle cx="100" cy="-12" r="3" fill="rgba(190,190,190,0.3)"/>
+                    <circle cx="110" cy="-10" r="3" fill="rgba(190,190,190,0.3)"/>
+                    <circle cx="122" cy="-4" r="3" fill="rgba(190,190,190,0.3)"/>
+                    <circle cx="84" cy="8" r="2.8" fill="rgba(190,190,190,0.25)"/>
+                    <circle cx="96" cy="4" r="2.8" fill="rgba(190,190,190,0.25)"/>
+                    <circle cx="108" cy="4" r="2.8" fill="rgba(190,190,190,0.25)"/>
+                    <circle cx="118" cy="10" r="2.8" fill="rgba(190,190,190,0.25)"/>
+                    <circle cx="100" cy="-52" r="3" fill="rgba(190,190,190,0.45)"/>
+                    <circle cx="88" cy="-48" r="3" fill="rgba(190,190,190,0.4)"/>
+                    <circle cx="112" cy="-48" r="3" fill="rgba(190,190,190,0.4)"/>
                 </svg>
             </div>
         </div>
