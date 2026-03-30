@@ -1176,17 +1176,19 @@
                     </defs>
 
                     <!-- ===== GOLF BALL on top ===== -->
-                    <circle cx="110" cy="24" r="18" fill="url(#ballGrad)"/>
+                    <circle cx="110" cy="12" r="30" fill="url(#ballGrad)"/>
                     <!-- Dimple pattern -->
-                    <circle cx="104" cy="18" r="1.5" fill="rgba(180,180,180,0.5)"/>
-                    <circle cx="110" cy="15" r="1.5" fill="rgba(180,180,180,0.5)"/>
-                    <circle cx="116" cy="18" r="1.5" fill="rgba(180,180,180,0.5)"/>
-                    <circle cx="102" cy="24" r="1.5" fill="rgba(180,180,180,0.4)"/>
-                    <circle cx="108" cy="22" r="1.5" fill="rgba(180,180,180,0.4)"/>
-                    <circle cx="114" cy="22" r="1.5" fill="rgba(180,180,180,0.4)"/>
-                    <circle cx="118" cy="26" r="1.5" fill="rgba(180,180,180,0.4)"/>
-                    <circle cx="106" cy="28" r="1.3" fill="rgba(180,180,180,0.35)"/>
-                    <circle cx="112" cy="30" r="1.3" fill="rgba(180,180,180,0.35)"/>
+                    <circle cx="100" cy="4" r="2.2" fill="rgba(180,180,180,0.5)"/>
+                    <circle cx="110" cy="0" r="2.2" fill="rgba(180,180,180,0.5)"/>
+                    <circle cx="120" cy="4" r="2.2" fill="rgba(180,180,180,0.5)"/>
+                    <circle cx="96" cy="12" r="2.2" fill="rgba(180,180,180,0.4)"/>
+                    <circle cx="104" cy="9" r="2.2" fill="rgba(180,180,180,0.4)"/>
+                    <circle cx="116" cy="9" r="2.2" fill="rgba(180,180,180,0.4)"/>
+                    <circle cx="124" cy="14" r="2.2" fill="rgba(180,180,180,0.4)"/>
+                    <circle cx="102" cy="18" r="2" fill="rgba(180,180,180,0.35)"/>
+                    <circle cx="112" cy="16" r="2" fill="rgba(180,180,180,0.35)"/>
+                    <circle cx="108" cy="24" r="2" fill="rgba(180,180,180,0.3)"/>
+                    <circle cx="118" cy="22" r="2" fill="rgba(180,180,180,0.3)"/>
 
                     <!-- ===== CYLINDER CUP ===== -->
                     <path d="M88,42 L88,130 Q88,136 92,138 L128,138 Q132,136 132,130 L132,42" fill="url(#teeBody)" stroke="#222" stroke-width="1"/>
@@ -1207,41 +1209,40 @@
 
                     <!-- ===== THREE STRAIGHT LEGS (tripod, ~45 deg outward) ===== -->
 
-                    <!-- Left leg: goes diagonally left-down, mostly straight, small hook at end -->
-                    <path d="M90,134 L42,192 L36,192 C32,192 30,188 32,184 L34,180 L82,128 Z" fill="url(#teeBody)" stroke="#222" stroke-width="0.5"/>
-                    <!-- Left hook tip (small upward curl) -->
-                    <path d="M36,192 C32,192 28,188 28,184 C28,178 32,176 36,178 L42,192 Z" fill="url(#teeBody)" stroke="#222" stroke-width="0.5"/>
+                    <!-- Left leg: shorter diagonal -->
+                    <path d="M90,134 L54,172 L48,172 C44,172 42,168 44,164 L46,162 L82,128 Z" fill="url(#teeBody)" stroke="#222" stroke-width="0.5"/>
+                    <!-- Left hook tip -->
+                    <path d="M48,172 C44,172 40,168 40,164 C40,158 44,156 48,158 L54,172 Z" fill="url(#teeBody)" stroke="#222" stroke-width="0.5"/>
 
-                    <!-- Right leg: mirror, diagonally right-down -->
-                    <path d="M130,134 L178,192 L184,192 C188,192 190,188 188,184 L186,180 L138,128 Z" fill="url(#teeBody)" stroke="#222" stroke-width="0.5"/>
+                    <!-- Right leg: mirror -->
+                    <path d="M130,134 L166,172 L172,172 C176,172 178,168 176,164 L174,162 L138,128 Z" fill="url(#teeBody)" stroke="#222" stroke-width="0.5"/>
                     <!-- Right hook tip -->
-                    <path d="M184,192 C188,192 192,188 192,184 C192,178 188,176 184,178 L178,192 Z" fill="url(#teeBody)" stroke="#222" stroke-width="0.5"/>
+                    <path d="M172,172 C176,172 180,168 180,164 C180,158 176,156 172,158 L166,172 Z" fill="url(#teeBody)" stroke="#222" stroke-width="0.5"/>
 
-                    <!-- Front leg: goes straight down toward viewer (foreshortened) -->
-                    <path d="M102,138 L98,200 L94,202 C90,204 90,200 92,196 L96,138 Z" fill="url(#teeBody)" stroke="#222" stroke-width="0.5"/>
-                    <path d="M118,138 L122,200 L126,202 C130,204 130,200 128,196 L124,138 Z" fill="url(#teeBody)" stroke="#222" stroke-width="0.5"/>
-                    <!-- Front fill between the two edges -->
-                    <path d="M98,200 L122,200 L118,138 L102,138 Z" fill="url(#teeBody)"/>
+                    <!-- Front leg: shorter, foreshortened -->
+                    <path d="M102,138 L99,180 L95,182 C91,184 91,180 93,176 L96,138 Z" fill="url(#teeBody)" stroke="#222" stroke-width="0.5"/>
+                    <path d="M118,138 L121,180 L125,182 C129,184 129,180 127,176 L124,138 Z" fill="url(#teeBody)" stroke="#222" stroke-width="0.5"/>
+                    <path d="M99,180 L121,180 L118,138 L102,138 Z" fill="url(#teeBody)"/>
                     <!-- Front hook tips -->
-                    <path d="M94,202 C90,206 90,210 94,212 C98,212 100,208 98,204 Z" fill="url(#teeBody)" stroke="#222" stroke-width="0.5"/>
-                    <path d="M126,202 C130,206 130,210 126,212 C122,212 120,208 122,204 Z" fill="url(#teeBody)" stroke="#222" stroke-width="0.5"/>
+                    <path d="M95,182 C91,186 91,190 95,192 C99,192 100,188 99,184 Z" fill="url(#teeBody)" stroke="#222" stroke-width="0.5"/>
+                    <path d="M125,182 C129,186 129,190 125,192 C121,192 120,188 121,184 Z" fill="url(#teeBody)" stroke="#222" stroke-width="0.5"/>
 
                     <!-- Hub ring where legs meet cylinder -->
                     <ellipse cx="110" cy="136" rx="22" ry="8" fill="#1a1a1a" stroke="#222" stroke-width="0.5"/>
 
                     <!-- ===== ROPE ATTACHMENT ===== -->
                     <!-- Short stem -->
-                    <rect x="106" y="200" width="8" height="16" rx="4" fill="url(#teeBody)"/>
+                    <rect x="106" y="180" width="8" height="14" rx="4" fill="url(#teeBody)"/>
                     <!-- Knot -->
-                    <circle cx="110" cy="222" r="7" fill="#2a2a2a" stroke="#333" stroke-width="0.8"/>
-                    <circle cx="110" cy="222" r="4" fill="#1a1a1a"/>
+                    <circle cx="110" cy="200" r="7" fill="#2a2a2a" stroke="#333" stroke-width="0.8"/>
+                    <circle cx="110" cy="200" r="4" fill="#1a1a1a"/>
 
                     <!-- Braided rope hanging down -->
-                    <path d="M110,229 Q112,240 108,250 Q104,260 108,270 Q112,280 108,290 Q104,300 108,310 Q112,320 108,330 Q104,340 108,350" stroke="#2a2a2a" stroke-width="3" fill="none" stroke-linecap="round"/>
-                    <path d="M110,229 Q108,240 112,250 Q116,260 112,270 Q108,280 112,290 Q116,300 112,310 Q108,320 112,330 Q116,340 112,350" stroke="#3a3a3a" stroke-width="2" fill="none" stroke-linecap="round"/>
+                    <path d="M110,207 Q112,218 108,228 Q104,238 108,248 Q112,258 108,268 Q104,278 108,288 Q112,298 108,308 Q104,318 108,328 Q112,338 108,350" stroke="#2a2a2a" stroke-width="3" fill="none" stroke-linecap="round"/>
+                    <path d="M110,207 Q108,218 112,228 Q116,238 112,248 Q108,258 112,268 Q116,278 112,288 Q108,298 112,308 Q116,318 112,328 Q108,338 112,350" stroke="#3a3a3a" stroke-width="2" fill="none" stroke-linecap="round"/>
 
                     <!-- Ground shadow -->
-                    <ellipse cx="110" cy="204" rx="60" ry="5" fill="rgba(0,0,0,0.2)"/>
+                    <ellipse cx="110" cy="184" rx="55" ry="5" fill="rgba(0,0,0,0.2)"/>
                 </svg>
             </div>
         </div>
