@@ -1207,12 +1207,8 @@
                     <!-- ===== CYLINDER CUP (wider, shorter) ===== -->
                     <!-- Cylinder body: wider (60px) and shorter -->
                     <path d="M70,68 L70,130 Q70,136 76,138 L124,138 Q130,136 130,130 L130,68" fill="url(#teeBody)" stroke="#1a1a1a" stroke-width="0.8"/>
-                    <!-- Top rim ellipse -->
-                    <ellipse cx="100" cy="68" rx="30" ry="10" fill="#2a2a2a" stroke="#333" stroke-width="0.8"/>
-                    <!-- Inner cup opening -->
-                    <ellipse cx="100" cy="68" rx="22" ry="7" fill="#0a0a0a"/>
-                    <!-- Ball shadow on rim -->
-                    <ellipse cx="100" cy="68" rx="18" ry="5" fill="rgba(0,0,0,0.25)"/>
+                    <!-- Top rim ellipse (ball covers this, so just dark fill) -->
+                    <ellipse cx="100" cy="68" rx="30" ry="10" fill="#1a1a1a" stroke="#333" stroke-width="0.8"/>
                     <!-- Vertical ridges -->
                     <line x1="80" y1="72" x2="80" y2="132" stroke="rgba(255,255,255,0.05)" stroke-width="1.5"/>
                     <line x1="90" y1="71" x2="90" y2="134" stroke="rgba(255,255,255,0.07)" stroke-width="1.2"/>
@@ -1249,16 +1245,7 @@
                     <!-- Hub ring at base of cylinder -->
                     <ellipse cx="100" cy="136" rx="26" ry="8" fill="#181818" stroke="#1a1a1a" stroke-width="0.5"/>
 
-                    <!-- ===== ROPE ===== -->
-                    <!-- Short stem to knot -->
-                    <rect x="96" y="172" width="8" height="12" rx="4" fill="url(#teeBody)"/>
-                    <!-- Knot -->
-                    <circle cx="100" cy="190" r="6" fill="#2a2a2a" stroke="#333" stroke-width="0.8"/>
-                    <circle cx="100" cy="190" r="3.5" fill="#161616"/>
-
-                    <!-- Braided rope -->
-                    <path d="M100,196 Q102,206 98,216 Q94,226 98,236 Q102,246 98,256 Q94,266 98,276 Q102,286 100,296" stroke="#2a2a2a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-                    <path d="M100,196 Q98,206 102,216 Q106,226 102,236 Q98,246 102,256 Q106,266 102,276 Q98,286 100,296" stroke="#383838" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+                    <!-- Rope removed -->
 
                     <!-- Ground shadow -->
                     <ellipse cx="100" cy="176" rx="50" ry="4" fill="rgba(0,0,0,0.18)"/>
