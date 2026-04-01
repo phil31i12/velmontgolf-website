@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velmont Golf — Das letzte Tee, das du je brauchst</title>
+    <meta name="description" content="Velmont Golf Tee — wiederverwendbar, individuell anpassbar, Made in Germany. Drei Höhen, ein Tee für immer.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #FAF9F6;
+            --bg-dark: #1a1a1a;
+            --bg-cream: #F5F0EB;
+            --bg-sage: #E8E6E1;
+            --text-primary: #1a1a1a;
+            --text-secondary: #5a5a5a;
+            --text-light: #FAF9F6;
+            --accent: #2D5016;
+            --accent-light: #4A7A2B;
+            --gold: #C4A265;
+            --border: #e0ddd8;
+            --font-body: 'Inter', sans-serif;
+            --font-display: 'Playfair Display', serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* ─── NAVIGATION ─── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1.25rem 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.4s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(250, 249, 246, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 1px 0 var(--border);
+            padding: 0.9rem 2.5rem;
+        }
+
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 1.35rem;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.4s ease;
+        }
+
+        nav.scrolled .nav-logo {
+            color: var(--text-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.8rem;
+            font-weight: 400;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: rgba(250, 249, 246, 0.85);
+            transition: color 0.3s ease;
+        }
+
+        nav.scrolled .nav-links a {
+            color: var(--text-secondary);
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-cta {
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--text-light);
+            border: 1px solid rgba(250, 249, 246, 0.4);
+            padding: 0.6rem 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled .nav-cta {
+            color: var(--text-primary);
+            border-color: var(--text-primary);
+        }
+
+        .nav-cta:hover {
+            background: var(--text-primary);
+            color: var(--text-light);
+            border-color: var(--text-primary);
+        }
+
+        nav.scrolled .nav-cta:hover {
+            background: var(--text-primary);
+            color: var(--text-light);
+        }
+
+        .nav-mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 10px;
+            min-width: 44px;
+            min-height: 44px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-mobile-toggle span {
+            width: 22px;
+            height: 1.5px;
+            background: var(--text-light);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled .nav-mobile-toggle span {
+            background: var(--text-primary);
+        }
+
+        /* ─── MOBILE MENU ─── */
+        .mobile-menu {
+            position: fixed;
+            inset: 0;
+            background: rgba(26, 26, 26, 0.97);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 200;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        .mobile-menu.open {
+            display: flex;
+        }
+
+        .mobile-menu a {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-weight: 400;
+            text-decoration: none;
+            color: var(--text-light);
+            transition: color 0.3s ease;
+            letter-spacing: 0.02em;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--gold);
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 2rem;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        /* ─── HERO V2 — Typografisch ─── */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 700px;
+            overflow: hidden;
+            background: linear-gradient(160deg, #0d1a0a 0%, #1a2e12 35%, #2d4a1f 65%, #3a5e28 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Vignette overlay */
+        .hero-vignette {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: radial-gradient(ellipse at center, transparent 35%, rgba(0,0,0,0.45) 100%);
+            pointer-events: none;
+        }
+
+        /* Subtle texture lines */
+        .hero-texture {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            opacity: 0.03;
+            background-image: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 80px,
+                rgba(250,249,246,1) 80px,
+                rgba(250,249,246,1) 81px
+            );
+            pointer-events: none;
+        }
+
+        /* Hero content — centered */
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 0 2rem;
+        }
+
+        .hero-tagline {
+            font-family: var(--font-body);
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s ease 0.3s forwards;
+        }
+
+        /* The big wordmark */
+        .hero-wordmark {
+            font-family: var(--font-display);
+            font-size: clamp(4rem, 11vw, 9rem);
+            font-weight: 400;
+            line-height: 1.0;
+            color: var(--text-light);
+            letter-spacing: -0.01em;
+            margin-bottom: 0;
+            opacity: 0;
+            transform: translateY(40px);
+            animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+        }
+
+        .hero-wordmark-sub {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 6.5vw, 5.5rem);
+            font-weight: 400;
+            font-style: italic;
+            color: var(--gold);
+            letter-spacing: 0.04em;
+            line-height: 1.0;
+            margin-bottom: 3rem;
+            opacity: 0;
+            transform: translateY(40px);
+            animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.7s forwards;
+        }
+
+        .hero-divider {
+            width: 40px;
+            height: 1px;
+            background: rgba(196, 162, 101, 0.5);
+            margin: 0 auto 2rem;
+            opacity: 0;
+            animation: fadeIn 0.8s ease 1s forwards;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            font-weight: 300;
+            color: rgba(250, 249, 246, 0.65);
+            max-width: 420px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.8;
+            letter-spacing: 0.02em;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s ease 1.1s forwards;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--text-light);
+            background: transparent;
+            border: 1px solid rgba(250, 249, 246, 0.4);
+            padding: 1rem 2.5rem;
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s ease 1.3s forwards;
+        }
+
+        .hero-btn:hover {
+            background: var(--text-light);
+            color: var(--text-primary);
+            border-color: var(--text-light);
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 2.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            opacity: 0;
+            animation: fadeIn 0.8s ease 1.8s forwards;
+        }
+
+        .hero-scroll span {
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(250, 249, 246, 0.4);
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(to bottom, rgba(250,249,246,0.4), transparent);
+            animation: scrollPulse 2s ease-in-out infinite;
+        }
+
+        /* ─── SECTIONS ─── */
+        section {
+            padding: 7rem 2.5rem;
+        }
+
+        .section-label {
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1.25rem;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-text {
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            max-width: 520px;
+        }
+
+        /* ─── INTRO ─── */
+        .intro {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .intro-image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .intro-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .intro-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 1px solid var(--border);
+            pointer-events: none;
+        }
+
+        /* ─── FEATURES ─── */
+        #features {
+            background: var(--bg-dark);
+            color: var(--text-light);
+            padding: 8rem 2.5rem;
+        }
+
+        .features-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .features-header .section-title {
+            color: var(--text-light);
+        }
+
+        .features-header .section-text {
+            color: rgba(250, 249, 246, 0.6);
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: auto auto;
+            gap: 0;
+            border: 1px solid rgba(250, 249, 246, 0.08);
+        }
+
+        .feature-card {
+            padding: 2.75rem 2rem;
+            border-right: 1px solid rgba(250, 249, 246, 0.08);
+            border-bottom: 1px solid rgba(250, 249, 246, 0.08);
+            transition: background 0.3s ease;
+            position: relative;
+        }
+
+        .feature-card:nth-child(3n) {
+            border-right: none;
+        }
+
+        .feature-card:nth-child(4),
+        .feature-card:nth-child(5),
+        .feature-card:nth-child(6) {
+            border-bottom: none;
+        }
+
+        .feature-card:hover {
+            background: rgba(196, 162, 101, 0.05);
+        }
+
+        .feature-icon {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            display: block;
+            opacity: 0.5;
+        }
+
+        .feature-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 400;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-card p {
+            font-size: 0.85rem;
+            font-weight: 300;
+            color: rgba(250, 249, 246, 0.55);
+            line-height: 1.7;
+        }
+
+        /* ─── SIZES ─── */
+        #groessen {
+            background: var(--bg-cream);
+        }
+
+        .sizes-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .sizes-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .sizes-header .section-text {
+            margin: 0 auto;
+        }
+
+        .sizes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .size-card {
+            background: var(--bg-primary);
+            text-align: center;
+            padding: 0 0 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+
+        .size-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+        }
+
+        .size-card-image {
+            background: var(--bg-cream);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: 1;
+            margin-bottom: 1.75rem;
+            overflow: hidden;
+        }
+
+        .size-card img {
+            width: 80%;
+            height: 100%;
+            object-fit: contain;
+            padding: 1.25rem;
+            transition: transform 0.5s ease;
+            display: block;
+            mix-blend-mode: multiply;
+        }
+
+        .size-card:hover img {
+            transform: scale(1.04);
+        }
+
+        .size-card-body {
+            padding: 0 1.5rem;
+        }
+
+        .size-name {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 400;
+            margin-bottom: 0.25rem;
+        }
+
+        .size-desc {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+            letter-spacing: 0.05em;
+        }
+
+        .size-height {
+            display: inline-block;
+            margin-top: 0.75rem;
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            padding: 0.35rem 0.9rem;
+        }
+
+        /* ─── CUSTOMIZATION ─── */
+        .custom-section {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .custom-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        /* ─── COLOR SWATCHES (hidden) ─── */
+        .config-colors,
+        .config-swatches,
+        .cfg-swatch,
+        .config-color-name,
+        .config-colors-label { display: none; }
+
+        /* ─── TEE CONFIGURATOR ─── */
+        .configurator {
+            background: linear-gradient(145deg, #f8f8f5 0%, #f0eee9 100%);
+            border: 1px solid var(--border);
+            padding: 3rem 2rem 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .configurator::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gold);
+            opacity: 0.6;
+        }
+
+        .config-label {
+            font-size: 0.6rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .config-tees {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 2.5rem;
+            padding-bottom: 2rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .config-tee {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .config-tee:hover {
+            transform: translateY(-4px);
+        }
+
+        .config-tee.active .tee-stem {
+            background: var(--gold);
+            box-shadow: 0 0 16px rgba(196, 162, 101, 0.3);
+        }
+
+        .config-tee.active .tee-name {
+            color: var(--gold);
+        }
+
+        .tee-ball {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #fff;
+            border: 2px solid var(--border);
+            margin-bottom: -2px;
+            z-index: 1;
+            transition: border-color 0.3s ease;
+        }
+
+        .config-tee.active .tee-ball {
+            border-color: var(--gold);
+        }
+
+        .tee-stem {
+            width: 4px;
+            border-radius: 0 0 2px 2px;
+            background: var(--border);
+            transition: all 0.4s ease;
+        }
+
+        .tee-stem.short { height: 50px; }
+        .tee-stem.medium { height: 65px; }
+        .tee-stem.tall { height: 80px; }
+
+        .tee-base {
+            width: 22px;
+            height: 8px;
+            border-radius: 0 0 4px 4px;
+            margin-top: -1px;
+            transition: background 0.3s ease;
+        }
+
+        .config-tee .tee-base {
+            background: var(--border);
+        }
+
+        .config-tee.active .tee-base {
+            background: var(--gold);
+        }
+
+        .tee-name {
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-top: 0.75rem;
+            transition: color 0.3s ease;
+        }
+
+        .tee-mm {
+            font-family: var(--font-display);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 0.15rem;
+            transition: color 0.3s ease;
+        }
+
+        .config-tee.active .tee-mm {
+            color: var(--text-primary);
+        }
+
+        .config-summary {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .config-summary-text {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-primary);
+            letter-spacing: 0.02em;
+        }
+
+        .config-summary-text span {
+            color: var(--gold);
+        }
+
+        /* ─── GALLERY ─── */
+        .gallery {
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* ─── PACKAGING ─── */
+        #verpackung {
+            background: var(--bg-dark);
+            color: var(--text-light);
+        }
+
+        .packaging-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .packaging-inner .section-title {
+            color: var(--text-light);
+        }
+
+        .packaging-inner .section-text {
+            color: rgba(250, 249, 246, 0.6);
+        }
+
+        .packaging-image img {
+            width: 100%;
+            display: block;
+            filter: drop-shadow(0 30px 60px rgba(0,0,0,0.4));
+        }
+
+        .badge-row {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(250, 249, 246, 0.1);
+        }
+
+        .badge-row img {
+            width: 60px;
+            height: auto;
+        }
+
+        .badge-text {
+            font-size: 0.8rem;
+            font-weight: 300;
+            color: rgba(250, 249, 246, 0.5);
+            line-height: 1.6;
+        }
+
+        /* ─── CTA ─── */
+        .cta {
+            background: var(--bg-cream);
+            text-align: center;
+            padding: 8rem 2.5rem;
+        }
+
+        .cta .section-title {
+            margin-bottom: 1rem;
+        }
+
+        .cta .section-text {
+            margin: 0 auto 2.5rem;
+            text-align: center;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            text-decoration: none;
+            background: var(--text-primary);
+            color: var(--text-light);
+            padding: 1.1rem 3rem;
+            transition: all 0.3s ease;
+            border: 1px solid var(--text-primary);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--text-primary);
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            background: var(--bg-dark);
+            color: rgba(250, 249, 246, 0.4);
+            padding: 3.5rem 2.5rem;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: rgba(250, 249, 246, 0.7);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .footer-links a {
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            text-decoration: none;
+            color: rgba(250, 249, 246, 0.4);
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .footer-copy {
+            font-size: 0.7rem;
+            letter-spacing: 0.05em;
+        }
+
+        /* ─── ANIMATIONS ─── */
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        @keyframes scrollPulse {
+            0%, 100% { opacity: 0.3; transform: scaleY(1); }
+            50% { opacity: 0.7; transform: scaleY(1.1); }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 900px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links, .nav-cta {
+                display: none;
+            }
+
+            .nav-mobile-toggle {
+                display: flex;
+            }
+
+            section {
+                padding: 4.5rem 1.5rem;
+            }
+
+            .intro {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .intro-image {
+                order: -1;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-card {
+                border-right: none;
+            }
+
+            .feature-card:nth-child(4),
+            .feature-card:nth-child(5),
+            .feature-card:nth-child(6) {
+                border-bottom: 1px solid rgba(250, 249, 246, 0.08);
+            }
+
+            .feature-card:last-child {
+                border-bottom: none;
+            }
+
+            .sizes-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .custom-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .config-tees {
+                gap: 1.5rem;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .packaging-inner {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .packaging-image {
+                order: -1;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                gap: 1.5rem;
+                text-align: center;
+            }
+
+            .footer-links {
+                gap: 1.5rem;
+            }
+
+            .cta {
+                padding: 5rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .sizes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .size-card-image {
+                aspect-ratio: 4/3;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* ─── FOCUS VISIBLE ─── */
+        :focus-visible {
+            outline: 2px solid var(--gold);
+            outline-offset: 3px;
+        }
+
+        .config-tee:focus-visible,
+        .cfg-swatch:focus-visible {
+            outline: 2px solid var(--gold);
+            outline-offset: 4px;
+        }
+
+        /* ─── REDUCED MOTION ─── */
+        @media (prefers-reduced-motion: reduce) {
+            .hero-tagline,
+            .hero-wordmark,
+            .hero-wordmark-sub,
+            .hero-divider,
+            .hero-subtitle,
+            .hero-btn,
+            .hero-scroll {
+                opacity: 1;
+                transform: none;
+                animation: none;
+            }
+            .scroll-line {
+                animation: none;
+            }
+            .reveal {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="#" class="nav-logo">Velmont Golf</a>
+        <ul class="nav-links">
+            <li><a href="#produkt">Das Tee</a></li>
+            <li><a href="produkte.html">Größen</a></li>
+            <li><a href="#features">Vorteile</a></li>
+            <li><a href="#verpackung">Verpackung</a></li>
+        </ul>
+        <a href="https://7ccjau-pn.myshopify.com" class="nav-cta" target="_blank">Jetzt bestellen</a>
+        <button class="nav-mobile-toggle" onclick="toggleMobileMenu()" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu-close" onclick="toggleMobileMenu()" aria-label="Close">&times;</button>
+        <a href="#produkt" onclick="toggleMobileMenu()">Das Tee</a>
+        <a href="produkte.html" onclick="toggleMobileMenu()">Größen</a>
+        <a href="#features" onclick="toggleMobileMenu()">Vorteile</a>
+        <a href="#verpackung" onclick="toggleMobileMenu()">Verpackung</a>
+        <a href="https://7ccjau-pn.myshopify.com" target="_blank">Jetzt bestellen</a>
+    </div>
+
+    <!-- Hero V2 — Typografisch -->
+    <section class="hero" id="hero">
+        <div class="hero-texture"></div>
+        <div class="hero-vignette"></div>
+
+        <div class="hero-content">
+            <p class="hero-tagline">Engineered in Germany</p>
+            <h1 class="hero-wordmark">Velmont</h1>
+            <p class="hero-wordmark-sub">Golf</p>
+            <div class="hero-divider"></div>
+            <p class="hero-subtitle">Das letzte Tee, das du je brauchst.<br>Wiederverwendbar. Individuell. Kompromisslos.</p>
+            <a href="#produkt" class="hero-btn">Entdecken</a>
+        </div>
+
+        <a href="#produkt" class="hero-scroll">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </a>
+    </section>
+
+    <!-- Intro / Product -->
+    <section id="produkt">
+        <div class="intro">
+            <div class="intro-content reveal">
+                <p class="section-label">Das Produkt</p>
+                <h2 class="section-title">Designed, um zu bleiben</h2>
+                <p class="section-text">
+                    Herkömmliche Tees brechen beim ersten Abschlag. Das Velmont Tee ist anders:
+                    robust, wiederverwendbar und mit einer Kordel gesichert, damit es immer griffbereit bleibt.
+                </p>
+                <p class="section-text" style="margin-top: 1.25rem;">
+                    Gefertigt aus hochwertigem Material in Deutschland &mdash; für Golfer, die Wert auf Qualität und Nachhaltigkeit legen.
+                </p>
+            </div>
+            <div class="intro-image reveal reveal-delay-2">
+                <img src="img/tee-grass.jpg" alt="Velmont Golf Tee auf dem Grün" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- Sizes -->
+    <section id="groessen">
+        <div class="sizes-inner">
+            <div class="sizes-header reveal">
+                <p class="section-label">Drei Größen</p>
+                <h2 class="section-title">Die richtige Höhe<br>für deinen Driver</h2>
+                <p class="section-text">Drei Höhen, ein Zweck &mdash; wähle die Aufteehöhe, die zu deinem Abschlag passt.</p>
+            </div>
+            <div class="sizes-grid">
+                <a href="produkt-short.html" class="size-card reveal reveal-delay-1" style="text-decoration:none; color:inherit;">
+                    <div class="size-card-image">
+                        <img src="img/tee-34mm.jpg" alt="Velmont Golf Tee 34mm Short" loading="lazy">
+                    </div>
+                    <div class="size-card-body">
+                        <h3 class="size-name">Short</h3>
+                        <p class="size-desc">Fairway Finder — kontrollierter Abschlag</p>
+                        <span class="size-height">34 mm</span>
+                    </div>
+                </a>
+                <a href="produkt-medium.html" class="size-card reveal reveal-delay-2" style="text-decoration:none; color:inherit;">
+                    <div class="size-card-image">
+                        <img src="img/tee-36mm.jpg" alt="Velmont Golf Tee 36mm Medium" loading="lazy">
+                    </div>
+                    <div class="size-card-body">
+                        <h3 class="size-name">Medium</h3>
+                        <p class="size-desc">Ausgewogen — Kontrolle und Distanz</p>
+                        <span class="size-height">36 mm</span>
+                    </div>
+                </a>
+                <a href="produkt-tall.html" class="size-card reveal reveal-delay-3" style="text-decoration:none; color:inherit;">
+                    <div class="size-card-image">
+                        <img src="img/tee-38mm.jpg" alt="Velmont Golf Tee 38mm Tall" loading="lazy">
+                    </div>
+                    <div class="size-card-body">
+                        <h3 class="size-name">Tall</h3>
+                        <p class="size-desc">Maximale Höhe für volle Driver-Power</p>
+                        <span class="size-height">38 mm</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customization -->
+    <section id="individuell">
+        <div class="custom-section">
+            <div class="custom-grid">
+                <div class="configurator reveal" id="configurator">
+                    <p class="config-label">Interaktiver Konfigurator</p>
+
+                    <div class="config-tees">
+                        <div class="config-tee" data-size="Short" data-mm="34" onclick="selectSize(this)" role="button" tabindex="0">
+                            <div class="tee-ball"></div>
+                            <div class="tee-stem short"></div>
+                            <div class="tee-base"></div>
+                            <span class="tee-name">Short</span>
+                            <span class="tee-mm">34mm</span>
+                        </div>
+                        <div class="config-tee active" data-size="Medium" data-mm="36" onclick="selectSize(this)" role="button" tabindex="0" aria-pressed="true">
+                            <div class="tee-ball"></div>
+                            <div class="tee-stem medium"></div>
+                            <div class="tee-base"></div>
+                            <span class="tee-name">Medium</span>
+                            <span class="tee-mm">36mm</span>
+                        </div>
+                        <div class="config-tee" data-size="Tall" data-mm="38" onclick="selectSize(this)" role="button" tabindex="0">
+                            <div class="tee-ball"></div>
+                            <div class="tee-stem tall"></div>
+                            <div class="tee-base"></div>
+                            <span class="tee-name">Tall</span>
+                            <span class="tee-mm">38mm</span>
+                        </div>
+                    </div>
+
+                    <div class="config-summary">
+                        <p class="config-summary-text">Deine Wahl: <span id="cfgSummary">Medium</span></p>
+                    </div>
+                </div>
+
+                <div class="custom-content reveal reveal-delay-2">
+                    <p class="section-label">Individualisierung</p>
+                    <h2 class="section-title">Dein Tee.<br>Deine Regeln.</h2>
+                    <p class="section-text">
+                        Wähle die Höhe, die zu deinem Spiel passt. Jedes Tee wird individuell für dich zusammengestellt &mdash; so präzise wie dein Abschlag.
+                    </p>
+                    <p class="section-text" style="margin-top: 1.25rem;">
+                        Drei Höhen &mdash; probier es aus.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="img/tee-action.jpg" alt="Velmont Golf Tee auf der Driving Range" loading="lazy">
+        </div>
+        <div class="gallery-item">
+            <img src="img/tee-lifestyle.jpg" alt="Velmont Golf Tee Lifestyle" loading="lazy">
+        </div>
+    </div>
+
+    <!-- Packaging -->
+    <section id="verpackung">
+        <div class="packaging-inner">
+            <div class="packaging-content reveal">
+                <p class="section-label">Premium Verpackung</p>
+                <h2 class="section-title">Ein Geschenk,<br>das beeindruckt</h2>
+                <p class="section-text">
+                    Jedes Velmont Set kommt in einer handgefertigten Box mit maßgeschneidertem Schaumstoff-Inlay. Perfekt zum Verschenken &mdash; oder zum Selbstbehalten.
+                </p>
+                <div class="badge-row">
+                    <img src="img/made-in-germany.png" alt="Made in Germany" loading="lazy">
+                    <p class="badge-text">Entwickelt und produziert<br>in Deutschland</p>
+                </div>
+            </div>
+            <div class="packaging-image reveal reveal-delay-2">
+                <img src="img/box.png" alt="Velmont Golf Premium Verpackung" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features">
+        <div class="features-inner">
+            <div class="features-header reveal">
+                <p class="section-label">Warum Velmont</p>
+                <h2 class="section-title">Durchdacht bis<br>ins kleinste Detail</h2>
+                <p class="section-text">Jedes Element wurde mit Präzision entwickelt, um dein Spiel zu verbessern.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card reveal reveal-delay-1">
+                    <span class="feature-icon" aria-hidden="true">&#9830;</span>
+                    <h3>Unzerbrechlich</h3>
+                    <p>Aus robustem Material gefertigt, das selbst kraftvollsten Abschlägen standhält. Ein Tee für tausende Runden.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-2">
+                    <span class="feature-icon" aria-hidden="true">&#9875;</span>
+                    <h3>Immer dabei</h3>
+                    <p>Die integrierte Kordel hält das Tee sicher an deiner Tasche oder deinem Handschuh. Nie wieder suchen.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-3">
+                    <span class="feature-icon" aria-hidden="true">&#9881;</span>
+                    <h3>Drei Höhen</h3>
+                    <p>Wähle zwischen Short, Medium und Tall &mdash; perfekt abgestimmt auf deinen Driver und deinen Schwung.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-1">
+                    <span class="feature-icon" aria-hidden="true">&#127912;</span>
+                    <h3>Drei Größen</h3>
+                    <p>Short, Medium oder Tall — wähle die Höhe, die perfekt zu deinem Schwung passt.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-2">
+                    <span class="feature-icon" aria-hidden="true">&#127758;</span>
+                    <h3>Nachhaltig</h3>
+                    <p>Ein Tee statt hunderte. Weniger Abfall auf dem Platz, weniger Plastik im Müll. Golf mit gutem Gewissen.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-3">
+                    <span class="feature-icon" aria-hidden="true">&#127465;&#127466;</span>
+                    <h3>Made in Germany</h3>
+                    <p>Entwickelt und produziert in Deutschland. Höchste Qualitätsstandards, kurze Lieferwege.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="reveal">
+            <p class="section-label">Bereit für das Upgrade?</p>
+            <h2 class="section-title">Nie wieder ein Tee verlieren.</h2>
+            <p class="section-text">
+                Konfiguriere dein Velmont Tee und erlebe Golf auf einem neuen Level.
+            </p>
+            <a href="https://7ccjau-pn.myshopify.com" class="btn-primary" target="_blank">Zum Shop</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-logo">Velmont Golf</div>
+            <ul class="footer-links">
+                <li><a href="https://7ccjau-pn.myshopify.com" target="_blank">Shop</a></li>
+                <li><a href="mailto:velmontgolfde@gmail.com">Kontakt</a></li>
+                <li><a href="https://www.tiktok.com/@velmontgolf" target="_blank">TikTok</a></li>
+            </ul>
+            <p class="footer-copy">&copy; 2026 Velmont Golf. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const nav = document.getElementById('navbar');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 80) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('open');
+        }
+
+        // Scroll reveal
+        const reveals = document.querySelectorAll('.reveal');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        reveals.forEach(el => observer.observe(el));
+
+        // Configurator
+        let cfgSize = 'Medium';
+
+        function selectSize(el) {
+            document.querySelectorAll('.config-tee').forEach(t => {
+                t.classList.remove('active');
+                t.removeAttribute('aria-pressed');
+            });
+            el.classList.add('active');
+            el.setAttribute('aria-pressed', 'true');
+            cfgSize = el.dataset.size;
+            updateCfgSummary();
+        }
+
+        document.querySelectorAll('.config-tee').forEach(el => {
+            el.addEventListener('keydown', e => {
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectSize(el); }
+            });
+        });
+
+        function updateCfgSummary() {
+            document.getElementById('cfgSummary').textContent = cfgSize;
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const pos = target.getBoundingClientRect().top + window.scrollY - offset;
+                    window.scrollTo({ top: pos, behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -141,6 +141,14 @@
             cursor: zoom-in;
         }
 
+        .gallery-main img,
+        .gallery-main video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
         .gallery-main img {
             width: 100%;
             height: 100%;
@@ -183,6 +191,30 @@
 
         .gallery-thumb:hover, .gallery-thumb.active {
             border-color: var(--gold);
+        }
+
+        .gallery-thumb img,
+        .gallery-thumb video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none;
+        }
+
+        .gallery-thumb-video {
+            position: relative;
+        }
+
+        .gallery-thumb-video::after {
+            content: "▶";
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.9);
+            background: rgba(0,0,0,0.35);
         }
 
         .gallery-thumb img {
@@ -555,20 +587,25 @@
         <div class="product-gallery">
             <div class="gallery-main" id="mainImage">
                 <img src="img/tee-38mm.jpg" alt="Velmont Golf Tee Tall 38mm" id="mainImg">
+                <video id="mainVideo" muted loop playsinline style="display:none; object-fit:cover;">
+                    <source src="img/produktvideo.mp4" type="video/mp4">
+                </video>
                 <span class="gallery-main-badge">Power</span>
             </div>
             <div class="gallery-thumbs">
-                <div class="gallery-thumb active" onclick="changeImage('img/tee-38mm.jpg', this)">
+                <div class="gallery-thumb active" onclick="showImage('img/tee-38mm.jpg', this)">
                     <img src="img/tee-38mm.jpg" alt="Produktansicht">
                 </div>
-                <div class="gallery-thumb" onclick="changeImage('img/tee-grass.jpg', this)">
+                <div class="gallery-thumb" onclick="showImage('img/tee-grass.jpg', this)">
                     <img src="img/tee-grass.jpg" alt="Auf dem Gruen">
                 </div>
-                <div class="gallery-thumb" onclick="changeImage('img/tee-lifestyle.jpg', this)">
+                <div class="gallery-thumb" onclick="showImage('img/tee-lifestyle.jpg', this)">
                     <img src="img/tee-lifestyle.jpg" alt="Lifestyle">
                 </div>
-                <div class="gallery-thumb" onclick="changeImage('img/box.png', this)">
-                    <img src="img/box.png" alt="Verpackung">
+                <div class="gallery-thumb gallery-thumb-video" onclick="showVideo(this)">
+                    <video muted loop playsinline>
+                        <source src="img/produktvideo.mp4" type="video/mp4">
+                    </video>
                 </div>
             </div>
         </div>
@@ -715,8 +752,21 @@
             document.getElementById('mobileMenu').classList.toggle('open');
         }
 
-        function changeImage(src, thumb) {
-            document.getElementById('mainImg').src = src;
+        function showImage(src, thumb) {
+            const img = document.getElementById('mainImg');
+            const vid = document.getElementById('mainVideo');
+            vid.pause(); vid.style.display = 'none';
+            img.src = src; img.style.display = 'block';
+            document.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('active'));
+            thumb.classList.add('active');
+        }
+
+        function showVideo(thumb) {
+            const img = document.getElementById('mainImg');
+            const vid = document.getElementById('mainVideo');
+            img.style.display = 'none';
+            vid.style.display = 'block';
+            vid.play();
             document.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('active'));
             thumb.classList.add('active');
         }
