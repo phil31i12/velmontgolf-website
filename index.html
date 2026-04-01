@@ -1593,7 +1593,7 @@
             dg.setAttribute('id', 'dimpGrad');
             dg.setAttribute('cx', '36%'); dg.setAttribute('cy', '30%'); dg.setAttribute('r', '80%');
             dg.setAttribute('gradientUnits', 'objectBoundingBox');
-            [['0%','rgba(255,255,255,0.08)'],['40%','rgba(0,0,0,0.08)'],['100%','rgba(0,0,0,0.34)']].forEach(([o,c]) => {
+            [['0%','rgba(255,255,255,0.03)'],['40%','rgba(0,0,0,0.03)'],['100%','rgba(0,0,0,0.11)']].forEach(([o,c]) => {
                 const s = document.createElementNS(ns, 'stop');
                 s.setAttribute('offset', o); s.setAttribute('stop-color', c);
                 dg.appendChild(s);
@@ -1631,7 +1631,7 @@
                     const shadow = document.createElementNS(ns, 'circle');
                     shadow.setAttribute('cx', dx); shadow.setAttribute('cy', dy);
                     shadow.setAttribute('r', dr);
-                    shadow.setAttribute('fill', 'rgba(0,0,0,0.18)');
+                    shadow.setAttribute('fill', 'rgba(0,0,0,0.06)');
                     g.appendChild(shadow);
 
                     // 3D gradient overlay
@@ -1647,7 +1647,7 @@
                     hl.setAttribute('cy', dy - dr * 0.30);
                     hl.setAttribute('rx', dr * 0.50);
                     hl.setAttribute('ry', dr * 0.34);
-                    hl.setAttribute('fill', 'rgba(255,255,255,0.30)');
+                    hl.setAttribute('fill', 'rgba(255,255,255,0.10)');
                     g.appendChild(hl);
                 }
             });
