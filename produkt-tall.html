@@ -372,6 +372,20 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
+            align-items: center;
+        }
+
+        .lifestyle-video {
+            aspect-ratio: 9/16;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .lifestyle-video video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         .lifestyle-img {
@@ -644,10 +658,15 @@
         </div>
     </section>
 
-    <!-- Lifestyle Images -->
+    <!-- Lifestyle / Video -->
     <section class="lifestyle">
         <div class="lifestyle-inner">
-            <div class="lifestyle-img reveal">
+            <div class="lifestyle-video reveal">
+                <video autoplay muted loop playsinline>
+                    <source src="img/produktvideo.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="lifestyle-img reveal reveal-delay-2">
                 <img src="img/tee-action.jpg" alt="Velmont Golf Tee auf der Range" loading="lazy">
             </div>
         </div>
