@@ -642,6 +642,13 @@
             align-items: center;
         }
 
+        /* ─── COLOR SWATCHES (removed) ─── */
+        .config-colors,
+        .config-swatches,
+        .cfg-swatch,
+        .config-color-name,
+        .config-colors-label { display: none; }
+
         /* ─── TEE CONFIGURATOR ─── */
         .configurator {
             background: linear-gradient(145deg, #f8f8f5 0%, #f0eee9 100%);
@@ -1461,20 +1468,8 @@
                         </div>
                     </div>
 
-                    <div class="config-colors">
-                        <p class="config-colors-label">Farbe wählen</p>
-                        <div class="config-swatches">
-                            <div class="cfg-swatch s-black active" data-color="Schwarz" onclick="selectCfgColor(this)" role="button" tabindex="0" aria-label="Farbe: Schwarz" aria-pressed="true"></div>
-                            <div class="cfg-swatch s-silver" data-color="Silber" onclick="selectCfgColor(this)" role="button" tabindex="0" aria-label="Farbe: Silber"></div>
-                            <div class="cfg-swatch s-gold" data-color="Gold" onclick="selectCfgColor(this)" role="button" tabindex="0" aria-label="Farbe: Gold"></div>
-                            <div class="cfg-swatch s-red" data-color="Rot" onclick="selectCfgColor(this)" role="button" tabindex="0" aria-label="Farbe: Rot"></div>
-                            <div class="cfg-swatch s-blue" data-color="Blau" onclick="selectCfgColor(this)" role="button" tabindex="0" aria-label="Farbe: Blau"></div>
-                        </div>
-                        <p class="config-color-name" id="cfgColorName">Schwarz</p>
-                    </div>
-
                     <div class="config-summary">
-                        <p class="config-summary-text">Deine Wahl: <span id="cfgSummary">Medium &middot; Schwarz</span></p>
+                        <p class="config-summary-text">Deine Wahl: <span id="cfgSummary">Medium</span></p>
                     </div>
                 </div>
 
@@ -1623,7 +1618,6 @@
 
         // Configurator
         let cfgSize = 'Medium';
-        let cfgColor = 'Schwarz';
 
         function selectSize(el) {
             document.querySelectorAll('.config-tee').forEach(t => {
@@ -1642,40 +1636,9 @@
             });
         });
 
-        document.querySelectorAll('.cfg-swatch').forEach(el => {
-            el.addEventListener('keydown', e => {
-                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectCfgColor(el); }
-            });
-        });
-
-        const colorMap = {
-            'Schwarz': '#1a1a1a',
-            'Silber': '#A8A9AD',
-            'Gold': '#C4A265',
-            'Rot': '#8B2D3A',
-            'Blau': '#2B4F81'
-        };
-
-        function selectCfgColor(el) {
-            document.querySelectorAll('.cfg-swatch').forEach(s => {
-                s.classList.remove('active');
-                s.removeAttribute('aria-pressed');
-            });
-            el.classList.add('active');
-            el.setAttribute('aria-pressed', 'true');
-            cfgColor = el.dataset.color;
-            document.getElementById('cfgColorName').textContent = cfgColor;
-            const hex = colorMap[cfgColor];
-            document.querySelectorAll('.config-tee').forEach(tee => {
-                tee.querySelector('.tee-stem').style.background = hex;
-                tee.querySelector('.tee-base').style.background = hex;
-                tee.querySelector('.tee-ball').style.borderColor = hex;
-            });
-            updateCfgSummary();
-        }
 
         function updateCfgSummary() {
-            document.getElementById('cfgSummary').innerHTML = cfgSize + ' &middot; ' + cfgColor;
+            document.getElementById('cfgSummary').textContent = cfgSize;
         }
 
         // Smooth scroll for anchor links
