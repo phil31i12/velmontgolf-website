@@ -585,8 +585,9 @@
         .size-card {
             background: var(--bg-primary);
             text-align: center;
-            padding: 2.5rem 1.5rem 2rem;
+            padding: 0 0 2rem;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
         }
 
         .size-card:hover {
@@ -594,13 +595,31 @@
             box-shadow: 0 20px 60px rgba(0,0,0,0.08);
         }
 
+        .size-card-image {
+            background: #f5f4f1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: 1;
+            margin-bottom: 1.75rem;
+            overflow: hidden;
+        }
+
         .size-card img {
-            width: 100%;
-            max-width: 200px;
-            height: 280px;
+            width: 70%;
+            height: 100%;
             object-fit: contain;
-            margin: 0 auto 1.5rem;
+            padding: 1.5rem;
+            transition: transform 0.5s ease;
             display: block;
+        }
+
+        .size-card:hover img {
+            transform: scale(1.04);
+        }
+
+        .size-card-body {
+            padding: 0 1.5rem;
         }
 
         .size-name {
@@ -1140,8 +1159,8 @@
                 grid-template-columns: 1fr;
             }
 
-            .size-card img {
-                height: 220px;
+            .size-card-image {
+                aspect-ratio: 4/3;
             }
 
             .gallery {
@@ -1416,22 +1435,34 @@
             </div>
             <div class="sizes-grid">
                 <a href="produkt-short.html" class="size-card reveal reveal-delay-1" style="text-decoration:none; color:inherit;">
-                    <img src="img/tee-34mm.jpg" alt="Velmont Golf Tee 34mm Short" loading="lazy">
-                    <h3 class="size-name">Short</h3>
-                    <p class="size-desc">Fairway Finder — kontrollierter Abschlag</p>
-                    <span class="size-height">34 mm</span>
+                    <div class="size-card-image">
+                        <img src="img/tee-34mm.jpg" alt="Velmont Golf Tee 34mm Short" loading="lazy">
+                    </div>
+                    <div class="size-card-body">
+                        <h3 class="size-name">Short</h3>
+                        <p class="size-desc">Fairway Finder — kontrollierter Abschlag</p>
+                        <span class="size-height">34 mm</span>
+                    </div>
                 </a>
                 <a href="produkt-medium.html" class="size-card reveal reveal-delay-2" style="text-decoration:none; color:inherit;">
-                    <img src="img/tee-36mm.jpg" alt="Velmont Golf Tee 36mm Medium" loading="lazy">
-                    <h3 class="size-name">Medium</h3>
-                    <p class="size-desc">Ausgewogen — Kontrolle und Distanz</p>
-                    <span class="size-height">36 mm</span>
+                    <div class="size-card-image">
+                        <img src="img/tee-36mm.jpg" alt="Velmont Golf Tee 36mm Medium" loading="lazy">
+                    </div>
+                    <div class="size-card-body">
+                        <h3 class="size-name">Medium</h3>
+                        <p class="size-desc">Ausgewogen — Kontrolle und Distanz</p>
+                        <span class="size-height">36 mm</span>
+                    </div>
                 </a>
                 <a href="produkt-tall.html" class="size-card reveal reveal-delay-3" style="text-decoration:none; color:inherit;">
-                    <img src="img/tee-38mm.jpg" alt="Velmont Golf Tee 38mm Tall" loading="lazy">
-                    <h3 class="size-name">Tall</h3>
-                    <p class="size-desc">Maximale Höhe für volle Driver-Power</p>
-                    <span class="size-height">38 mm</span>
+                    <div class="size-card-image">
+                        <img src="img/tee-38mm.jpg" alt="Velmont Golf Tee 38mm Tall" loading="lazy">
+                    </div>
+                    <div class="size-card-body">
+                        <h3 class="size-name">Tall</h3>
+                        <p class="size-desc">Maximale Höhe für volle Driver-Power</p>
+                        <span class="size-height">38 mm</span>
+                    </div>
                 </a>
             </div>
         </div>
