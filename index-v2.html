@@ -802,31 +802,78 @@
         .packaging-inner {
             max-width: 1100px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            align-items: center;
         }
 
-        .packaging-inner .section-title {
+        .packaging-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .packaging-header .section-title {
             color: var(--text-light);
         }
 
-        .packaging-inner .section-text {
+        .packaging-header .section-text {
             color: rgba(250, 249, 246, 0.6);
+            margin: 0 auto;
         }
 
-        .packaging-image img {
+        .packaging-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .packaging-option {
+            border: 1px solid rgba(250, 249, 246, 0.1);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: border-color 0.3s ease;
+        }
+
+        .packaging-option:hover {
+            border-color: rgba(196, 162, 101, 0.3);
+        }
+
+        .packaging-option-img {
             width: 100%;
+            max-height: 260px;
+            object-fit: contain;
             display: block;
-            filter: drop-shadow(0 30px 60px rgba(0,0,0,0.4));
+            margin: 0 auto 2rem;
+            filter: drop-shadow(0 15px 30px rgba(0,0,0,0.4));
+        }
+
+        .packaging-option-label {
+            font-size: 0.6rem;
+            font-weight: 500;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .packaging-option-name {
+            font-family: var(--font-display);
+            font-size: 1.35rem;
+            font-weight: 400;
+            color: var(--text-light);
+            margin-bottom: 0.75rem;
+        }
+
+        .packaging-option-desc {
+            font-size: 0.85rem;
+            font-weight: 300;
+            color: rgba(250, 249, 246, 0.55);
+            line-height: 1.7;
         }
 
         .badge-row {
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 1.25rem;
-            margin-top: 2.5rem;
+            margin-top: 3rem;
             padding-top: 2rem;
             border-top: 1px solid rgba(250, 249, 246, 0.1);
         }
@@ -1018,13 +1065,9 @@
                 grid-template-columns: 1fr;
             }
 
-            .packaging-inner {
+            .packaging-options {
                 grid-template-columns: 1fr;
-                gap: 2.5rem;
-            }
-
-            .packaging-image {
-                order: -1;
+                gap: 1.5rem;
             }
 
             .footer-inner {
@@ -1273,19 +1316,28 @@
     <!-- Packaging -->
     <section id="verpackung">
         <div class="packaging-inner">
-            <div class="packaging-content reveal">
-                <p class="section-label">Premium Verpackung</p>
-                <h2 class="section-title">Ein Geschenk,<br>das beeindruckt</h2>
-                <p class="section-text">
-                    Jedes Velmont Set kommt in einer handgefertigten Box mit maßgeschneidertem Schaumstoff-Inlay. Perfekt zum Verschenken &mdash; oder zum Selbstbehalten.
-                </p>
-                <div class="badge-row">
-                    <img src="img/made-in-germany.png" alt="Made in Germany" loading="lazy">
-                    <p class="badge-text">Entwickelt und produziert<br>in Deutschland</p>
+            <div class="packaging-header reveal">
+                <p class="section-label">Verpackung</p>
+                <h2 class="section-title">Für jeden Anlass<br>die richtige Verpackung</h2>
+                <p class="section-text">Einzeln oder als Set &mdash; jedes Velmont Tee kommt sorgfältig verpackt.</p>
+            </div>
+            <div class="packaging-options">
+                <div class="packaging-option reveal reveal-delay-1">
+                    <img src="img/staubbeutel.png" alt="Velmont Golf Staubbeutel" class="packaging-option-img" loading="lazy">
+                    <p class="packaging-option-label">Einzelkauf</p>
+                    <h3 class="packaging-option-name">Premium Staubbeutel</h3>
+                    <p class="packaging-option-desc">Jedes einzeln bestellte Tee kommt in einem hochwertigen Staubbeutel &mdash; schützend, kompakt und immer griffbereit in der Golftasche.</p>
+                </div>
+                <div class="packaging-option reveal reveal-delay-2">
+                    <img src="img/box.png" alt="Velmont Golf Premium Box" class="packaging-option-img" loading="lazy">
+                    <p class="packaging-option-label">Bundle</p>
+                    <h3 class="packaging-option-name">Handgefertigte Box</h3>
+                    <p class="packaging-option-desc">Beim Bundle-Kauf kommt alles in einer handgefertigten Box mit maßgeschneidertem Schaumstoff-Inlay &mdash; perfekt zum Verschenken oder Selbstbehalten.</p>
                 </div>
             </div>
-            <div class="packaging-image reveal reveal-delay-2">
-                <img src="img/box.png" alt="Velmont Golf Premium Verpackung" loading="lazy">
+            <div class="badge-row reveal">
+                <img src="img/made-in-germany.png" alt="Made in Germany" loading="lazy">
+                <p class="badge-text">Entwickelt und produziert<br>in Deutschland</p>
             </div>
         </div>
     </section>
