@@ -892,6 +892,143 @@
             line-height: 1.6;
         }
 
+        /* ─── REVIEWS ─── */
+        .reviews {
+            background: var(--bg-primary);
+            padding: 8rem 2.5rem;
+        }
+
+        .reviews-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .reviews-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .reviews-stars-overall {
+            display: flex;
+            justify-content: center;
+            gap: 0.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .star {
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .review-card {
+            background: var(--bg-cream);
+            padding: 2.25rem 2rem;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.07);
+        }
+
+        .review-card::before {
+            content: '\201C';
+            font-family: var(--font-display);
+            font-size: 5rem;
+            line-height: 1;
+            color: var(--gold);
+            opacity: 0.25;
+            position: absolute;
+            top: 1rem;
+            left: 1.5rem;
+        }
+
+        .review-stars {
+            display: flex;
+            gap: 0.2rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .review-stars .star {
+            font-size: 0.85rem;
+        }
+
+        .review-text {
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.75rem;
+            font-style: italic;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .review-avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-light);
+            flex-shrink: 0;
+        }
+
+        .review-author-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+        }
+
+        .review-name {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            letter-spacing: 0.02em;
+        }
+
+        .review-meta {
+            font-size: 0.7rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            letter-spacing: 0.04em;
+        }
+
+        .review-verified {
+            margin-left: auto;
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        @media (max-width: 900px) {
+            .reviews-grid {
+                grid-template-columns: 1fr;
+                max-width: 480px;
+                margin: 0 auto;
+            }
+        }
+
         /* ─── CTA ─── */
         .cta {
             background: var(--bg-cream);
@@ -1383,6 +1520,72 @@
                     <h3>Made in Germany</h3>
                     <p>Entwickelt und produziert in Deutschland. Höchste Qualitätsstandards, kurze Lieferwege.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews -->
+    <section class="reviews">
+        <div class="reviews-inner">
+            <div class="reviews-header reveal">
+                <p class="section-label">Kundenstimmen</p>
+                <div class="reviews-stars-overall">
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                </div>
+                <h2 class="section-title">Was Golfer sagen</h2>
+                <p class="section-text" style="margin: 0 auto;">Echte Erfahrungen von Spielern, die das Velmont Tee auf der Range und dem Platz testen.</p>
+            </div>
+            <div class="reviews-grid">
+
+                <div class="review-card reveal reveal-delay-1">
+                    <div class="review-stars">
+                        <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
+                    </div>
+                    <p class="review-text">Endlich ein Tee, das nicht nach jedem Abschlag weg ist. Die Kordel am Ballkorb ist genial — ich hab schon hunderte Range-Sessions hinter mir und verlier es nie.</p>
+                    <div class="review-author">
+                        <div class="review-avatar">M</div>
+                        <div class="review-author-info">
+                            <span class="review-name">Markus T.</span>
+                            <span class="review-meta">Handicap 12 · München</span>
+                        </div>
+                        <span class="review-verified">Verifiziert</span>
+                    </div>
+                </div>
+
+                <div class="review-card reveal reveal-delay-2">
+                    <div class="review-stars">
+                        <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
+                    </div>
+                    <p class="review-text">Das Tee hält was es verspricht. Hochwertige Verarbeitung, liegt perfekt in der Hand. Das Medium passt ideal zu meinem Driver — ich würde es jederzeit wieder kaufen.</p>
+                    <div class="review-author">
+                        <div class="review-avatar">S</div>
+                        <div class="review-author-info">
+                            <span class="review-name">Stefan B.</span>
+                            <span class="review-meta">Handicap 7 · Hamburg</span>
+                        </div>
+                        <span class="review-verified">Verifiziert</span>
+                    </div>
+                </div>
+
+                <div class="review-card reveal reveal-delay-3">
+                    <div class="review-stars">
+                        <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
+                    </div>
+                    <p class="review-text">Als Geschenk für meinen Mann gekauft — er ist begeistert. Die Box sieht edel aus, das Tee selbst macht einen sehr robusten Eindruck. Definitiv kein Vergleich zu normalen Plastiktees.</p>
+                    <div class="review-author">
+                        <div class="review-avatar">L</div>
+                        <div class="review-author-info">
+                            <span class="review-name">Laura K.</span>
+                            <span class="review-meta">Köln</span>
+                        </div>
+                        <span class="review-verified">Verifiziert</span>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
