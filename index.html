@@ -158,6 +158,60 @@
             background: var(--text-primary);
         }
 
+        /* ─── LANG TOGGLE ─── */
+        .lang-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            margin-left: 1rem;
+        }
+
+        .lang-btn {
+            font-size: 0.68rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(250, 249, 246, 0.45);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.3rem 0.5rem;
+            transition: color 0.3s ease;
+            font-family: var(--font-body);
+            line-height: 1;
+        }
+
+        .lang-btn.active {
+            color: var(--gold);
+        }
+
+        .lang-btn:hover:not(.active) {
+            color: rgba(250, 249, 246, 0.75);
+        }
+
+        .lang-sep {
+            width: 1px;
+            height: 10px;
+            background: rgba(250, 249, 246, 0.25);
+            flex-shrink: 0;
+        }
+
+        nav.scrolled .lang-btn {
+            color: rgba(26, 26, 26, 0.35);
+        }
+
+        nav.scrolled .lang-btn.active {
+            color: var(--gold);
+        }
+
+        nav.scrolled .lang-btn:hover:not(.active) {
+            color: var(--text-secondary);
+        }
+
+        nav.scrolled .lang-sep {
+            background: rgba(26, 26, 26, 0.2);
+        }
+
         /* ─── MOBILE MENU ─── */
         .mobile-menu {
             position: fixed;
@@ -1285,12 +1339,17 @@
     <nav id="navbar">
         <a href="#" class="nav-logo">Velmont Golf</a>
         <ul class="nav-links">
-            <li><a href="#produkt">Das Tee</a></li>
-            <li><a href="produkte.html">Größen</a></li>
-            <li><a href="#features">Vorteile</a></li>
-            <li><a href="#verpackung">Verpackung</a></li>
+            <li><a href="#produkt" data-i18n="nav.tee">Das Tee</a></li>
+            <li><a href="produkte.html" data-i18n="nav.sizes">Größen</a></li>
+            <li><a href="#features" data-i18n="nav.features">Vorteile</a></li>
+            <li><a href="#verpackung" data-i18n="nav.packaging">Verpackung</a></li>
         </ul>
-        <a href="https://7ccjau-pn.myshopify.com" class="nav-cta" target="_blank">Jetzt bestellen</a>
+        <a href="https://7ccjau-pn.myshopify.com" class="nav-cta" target="_blank" data-i18n="nav.shop">Jetzt bestellen</a>
+        <div class="lang-toggle">
+            <button class="lang-btn active" onclick="setLanguage('de')" data-lang="de">DE</button>
+            <div class="lang-sep"></div>
+            <button class="lang-btn" onclick="setLanguage('en')" data-lang="en">EN</button>
+        </div>
         <button class="nav-mobile-toggle" onclick="toggleMobileMenu()" aria-label="Menu">
             <span></span><span></span><span></span>
         </button>
@@ -1299,11 +1358,16 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <button class="mobile-menu-close" onclick="toggleMobileMenu()" aria-label="Close">&times;</button>
-        <a href="#produkt" onclick="toggleMobileMenu()">Das Tee</a>
-        <a href="produkte.html" onclick="toggleMobileMenu()">Größen</a>
-        <a href="#features" onclick="toggleMobileMenu()">Vorteile</a>
-        <a href="#verpackung" onclick="toggleMobileMenu()">Verpackung</a>
-        <a href="https://7ccjau-pn.myshopify.com" target="_blank">Jetzt bestellen</a>
+        <a href="#produkt" onclick="toggleMobileMenu()" data-i18n="nav.tee">Das Tee</a>
+        <a href="produkte.html" onclick="toggleMobileMenu()" data-i18n="nav.sizes">Größen</a>
+        <a href="#features" onclick="toggleMobileMenu()" data-i18n="nav.features">Vorteile</a>
+        <a href="#verpackung" onclick="toggleMobileMenu()" data-i18n="nav.packaging">Verpackung</a>
+        <a href="https://7ccjau-pn.myshopify.com" target="_blank" data-i18n="nav.shop">Jetzt bestellen</a>
+        <div class="lang-toggle" style="margin-top:0.5rem;">
+            <button class="lang-btn active" onclick="setLanguage('de')" data-lang="de" style="color:rgba(250,249,246,0.5);font-size:0.85rem;">DE</button>
+            <div class="lang-sep" style="background:rgba(250,249,246,0.25);"></div>
+            <button class="lang-btn" onclick="setLanguage('en')" data-lang="en" style="color:rgba(250,249,246,0.5);font-size:0.85rem;">EN</button>
+        </div>
     </div>
 
     <!-- Hero V2 — Typografisch -->
@@ -1316,12 +1380,12 @@
             <h1 class="hero-wordmark">Velmont</h1>
             <p class="hero-wordmark-sub">Golf</p>
             <div class="hero-divider"></div>
-            <p class="hero-subtitle">Das letzte Tee, das du je brauchst.<br>Wiederverwendbar. Individuell. Kompromisslos.</p>
-            <a href="#produkt" class="hero-btn">Entdecken</a>
+            <p class="hero-subtitle" data-i18n="hero.subtitle">Das letzte Tee, das du je brauchst.<br>Wiederverwendbar. Individuell. Kompromisslos.</p>
+            <a href="#produkt" class="hero-btn" data-i18n="hero.btn">Entdecken</a>
         </div>
 
         <a href="#produkt" class="hero-scroll">
-            <span>Scroll</span>
+            <span data-i18n="hero.scroll">Scroll</span>
             <div class="scroll-line"></div>
         </a>
     </section>
@@ -1330,13 +1394,13 @@
     <section id="produkt">
         <div class="intro">
             <div class="intro-content reveal">
-                <p class="section-label">Das Produkt</p>
-                <h2 class="section-title">Designed, um zu bleiben</h2>
-                <p class="section-text">
+                <p class="section-label" data-i18n="intro.label">Das Produkt</p>
+                <h2 class="section-title" data-i18n="intro.title">Designed, um zu bleiben</h2>
+                <p class="section-text" data-i18n="intro.text1">
                     Herkömmliche Tees brechen beim ersten Abschlag. Das Velmont Tee ist anders:
                     robust, wiederverwendbar und mit einer Kordel gesichert, damit es immer griffbereit bleibt.
                 </p>
-                <p class="section-text" style="margin-top: 1.25rem;">
+                <p class="section-text" style="margin-top: 1.25rem;" data-i18n="intro.text2">
                     Gefertigt aus hochwertigem Material in Deutschland &mdash; für Golfer, die Wert auf Qualität und Nachhaltigkeit legen.
                 </p>
             </div>
@@ -1350,9 +1414,9 @@
     <section id="groessen">
         <div class="sizes-inner">
             <div class="sizes-header reveal">
-                <p class="section-label">Drei Größen</p>
-                <h2 class="section-title">Die richtige Höhe<br>für deinen Driver</h2>
-                <p class="section-text">Drei Höhen, ein Zweck &mdash; wähle die Aufteehöhe, die zu deinem Abschlag passt.</p>
+                <p class="section-label" data-i18n="sizes.label">Drei Größen</p>
+                <h2 class="section-title" data-i18n="sizes.title">Die richtige Höhe<br>für deinen Driver</h2>
+                <p class="section-text" data-i18n="sizes.text">Drei Höhen, ein Zweck &mdash; wähle die Aufteehöhe, die zu deinem Abschlag passt.</p>
             </div>
             <div class="sizes-grid">
                 <a href="produkt-short.html" class="size-card reveal reveal-delay-1" style="text-decoration:none; color:inherit;">
@@ -1361,7 +1425,7 @@
                     </div>
                     <div class="size-card-body">
                         <h3 class="size-name">Short</h3>
-                        <p class="size-desc">Fairway Finder — kontrollierter Abschlag</p>
+                        <p class="size-desc" data-i18n="sizes.short.desc">Fairway Finder — kontrollierter Abschlag</p>
                         <span class="size-height">34 mm</span>
                         <span class="size-price">7,99 €</span>
                     </div>
@@ -1372,7 +1436,7 @@
                     </div>
                     <div class="size-card-body">
                         <h3 class="size-name">Medium</h3>
-                        <p class="size-desc">Ausgewogen — Kontrolle und Distanz</p>
+                        <p class="size-desc" data-i18n="sizes.medium.desc">Ausgewogen — Kontrolle und Distanz</p>
                         <span class="size-height">36 mm</span>
                         <span class="size-price">7,99 €</span>
                     </div>
@@ -1383,7 +1447,7 @@
                     </div>
                     <div class="size-card-body">
                         <h3 class="size-name">Tall</h3>
-                        <p class="size-desc">Maximale Höhe für volle Driver-Power</p>
+                        <p class="size-desc" data-i18n="sizes.tall.desc">Maximale Höhe für volle Driver-Power</p>
                         <span class="size-height">38 mm</span>
                         <span class="size-price">7,99 €</span>
                     </div>
@@ -1397,7 +1461,7 @@
         <div class="custom-section">
             <div class="custom-grid">
                 <div class="configurator reveal" id="configurator">
-                    <p class="config-label">Interaktiver Konfigurator</p>
+                    <p class="config-label" data-i18n="config.label">Interaktiver Konfigurator</p>
 
                     <div class="config-tees">
                         <div class="config-tee" data-size="Short" data-mm="34" onclick="selectSize(this)" role="button" tabindex="0">
@@ -1424,17 +1488,17 @@
                     </div>
 
                     <div class="config-summary">
-                        <p class="config-summary-text">Deine Wahl: <span id="cfgSummary">Medium</span></p>
+                        <p class="config-summary-text"><span data-i18n="config.summary">Deine Wahl:</span> <span id="cfgSummary">Medium</span></p>
                     </div>
                 </div>
 
                 <div class="custom-content reveal reveal-delay-2">
-                    <p class="section-label">Individualisierung</p>
-                    <h2 class="section-title">Dein Tee.<br>Deine Regeln.</h2>
-                    <p class="section-text">
+                    <p class="section-label" data-i18n="config.section.label">Individualisierung</p>
+                    <h2 class="section-title" data-i18n="config.title">Dein Tee.<br>Deine Regeln.</h2>
+                    <p class="section-text" data-i18n="config.text1">
                         Wähle die Höhe, die zu deinem Spiel passt. Jedes Tee wird individuell für dich zusammengestellt &mdash; so präzise wie dein Abschlag.
                     </p>
-                    <p class="section-text" style="margin-top: 1.25rem;">
+                    <p class="section-text" style="margin-top: 1.25rem;" data-i18n="config.text2">
                         Drei Höhen &mdash; probier es aus.
                     </p>
                 </div>
@@ -1456,27 +1520,27 @@
     <section id="verpackung">
         <div class="packaging-inner">
             <div class="packaging-header reveal">
-                <p class="section-label">Verpackung</p>
-                <h2 class="section-title">Für jeden Anlass<br>die richtige Verpackung</h2>
-                <p class="section-text">Einzeln oder als Set &mdash; jedes Velmont Tee kommt sorgfältig verpackt.</p>
+                <p class="section-label" data-i18n="pack.label">Verpackung</p>
+                <h2 class="section-title" data-i18n="pack.title">Für jeden Anlass<br>die richtige Verpackung</h2>
+                <p class="section-text" data-i18n="pack.text">Einzeln oder als Set &mdash; jedes Velmont Tee kommt sorgfältig verpackt.</p>
             </div>
             <div class="packaging-options">
                 <div class="packaging-option reveal reveal-delay-1">
                     <img src="img/staubbeutel.png" alt="Velmont Golf Staubbeutel" class="packaging-option-img" loading="lazy">
-                    <p class="packaging-option-label">Einzelkauf</p>
-                    <h3 class="packaging-option-name">Premium Staubbeutel</h3>
-                    <p class="packaging-option-desc">Jedes einzeln bestellte Tee kommt in einem hochwertigen Staubbeutel &mdash; schützend, kompakt und immer griffbereit in der Golftasche.</p>
+                    <p class="packaging-option-label" data-i18n="pack.single.label">Einzelkauf</p>
+                    <h3 class="packaging-option-name" data-i18n="pack.single.name">Premium Staubbeutel</h3>
+                    <p class="packaging-option-desc" data-i18n="pack.single.desc">Jedes einzeln bestellte Tee kommt in einem hochwertigen Staubbeutel &mdash; schützend, kompakt und immer griffbereit in der Golftasche.</p>
                 </div>
                 <div class="packaging-option reveal reveal-delay-2">
                     <img src="img/box.png" alt="Velmont Golf Premium Box" class="packaging-option-img" loading="lazy">
-                    <p class="packaging-option-label">Bundle</p>
-                    <h3 class="packaging-option-name">Handgefertigte Box</h3>
-                    <p class="packaging-option-desc">Beim Bundle-Kauf kommt alles in einer handgefertigten Box mit maßgeschneidertem Schaumstoff-Inlay &mdash; perfekt zum Verschenken oder Selbstbehalten.</p>
+                    <p class="packaging-option-label" data-i18n="pack.bundle.label">Bundle</p>
+                    <h3 class="packaging-option-name" data-i18n="pack.bundle.name">Handgefertigte Box</h3>
+                    <p class="packaging-option-desc" data-i18n="pack.bundle.desc">Beim Bundle-Kauf kommt alles in einer handgefertigten Box mit maßgeschneidertem Schaumstoff-Inlay &mdash; perfekt zum Verschenken oder Selbstbehalten.</p>
                 </div>
             </div>
             <div class="badge-row reveal">
                 <img src="img/made-in-germany.png" alt="Made in Germany" loading="lazy">
-                <p class="badge-text">Entwickelt und produziert<br>in Deutschland</p>
+                <p class="badge-text" data-i18n="pack.badge">Entwickelt und produziert<br>in Deutschland</p>
             </div>
         </div>
     </section>
@@ -1485,40 +1549,40 @@
     <section id="features">
         <div class="features-inner">
             <div class="features-header reveal">
-                <p class="section-label">Warum Velmont</p>
-                <h2 class="section-title">Durchdacht bis<br>ins kleinste Detail</h2>
-                <p class="section-text">Jedes Element wurde mit Präzision entwickelt, um dein Spiel zu verbessern.</p>
+                <p class="section-label" data-i18n="feat.label">Warum Velmont</p>
+                <h2 class="section-title" data-i18n="feat.title">Durchdacht bis<br>ins kleinste Detail</h2>
+                <p class="section-text" data-i18n="feat.text">Jedes Element wurde mit Präzision entwickelt, um dein Spiel zu verbessern.</p>
             </div>
             <div class="features-grid">
                 <div class="feature-card reveal reveal-delay-1">
                     <span class="feature-icon" aria-hidden="true">&#9830;</span>
-                    <h3>Unzerbrechlich</h3>
-                    <p>Aus robustem Material gefertigt, das selbst kraftvollsten Abschlägen standhält. Ein Tee für tausende Runden.</p>
+                    <h3 data-i18n="feat.1.title">Unzerbrechlich</h3>
+                    <p data-i18n="feat.1.text">Aus robustem Material gefertigt, das selbst kraftvollsten Abschlägen standhält. Ein Tee für tausende Runden.</p>
                 </div>
                 <div class="feature-card reveal reveal-delay-2">
                     <span class="feature-icon" aria-hidden="true">&#9875;</span>
-                    <h3>Immer dabei</h3>
-                    <p>Die Kordel lässt sich am Ballkorb auf der Range befestigen. Nie wieder nach dem Tee suchen.</p>
+                    <h3 data-i18n="feat.2.title">Immer dabei</h3>
+                    <p data-i18n="feat.2.text">Die Kordel lässt sich am Ballkorb auf der Range befestigen. Nie wieder nach dem Tee suchen.</p>
                 </div>
                 <div class="feature-card reveal reveal-delay-3">
                     <span class="feature-icon" aria-hidden="true">&#9881;</span>
-                    <h3>Drei Höhen</h3>
-                    <p>Wähle zwischen Short, Medium und Tall &mdash; perfekt abgestimmt auf deinen Driver und deinen Schwung.</p>
+                    <h3 data-i18n="feat.3.title">Drei Höhen</h3>
+                    <p data-i18n="feat.3.text">Wähle zwischen Short, Medium und Tall &mdash; perfekt abgestimmt auf deinen Driver und deinen Schwung.</p>
                 </div>
                 <div class="feature-card reveal reveal-delay-1">
                     <span class="feature-icon" aria-hidden="true">&#9135;</span>
-                    <h3>Geflochtene Kordel</h3>
-                    <p>Am Ballkorb auf der Range befestigt — das Tee ist immer griffbereit und geht nie verloren.</p>
+                    <h3 data-i18n="feat.4.title">Geflochtene Kordel</h3>
+                    <p data-i18n="feat.4.text">Am Ballkorb auf der Range befestigt — das Tee ist immer griffbereit und geht nie verloren.</p>
                 </div>
                 <div class="feature-card reveal reveal-delay-2">
                     <span class="feature-icon" aria-hidden="true">&#127758;</span>
-                    <h3>Nachhaltig</h3>
-                    <p>Ein Tee statt hunderte. Weniger Abfall auf dem Platz, weniger Plastik im Müll. Golf mit gutem Gewissen.</p>
+                    <h3 data-i18n="feat.5.title">Nachhaltig</h3>
+                    <p data-i18n="feat.5.text">Ein Tee statt hunderte. Weniger Abfall auf dem Platz, weniger Plastik im Müll. Golf mit gutem Gewissen.</p>
                 </div>
                 <div class="feature-card reveal reveal-delay-3">
                     <span class="feature-icon" aria-hidden="true">&#127465;&#127466;</span>
-                    <h3>Made in Germany</h3>
-                    <p>Entwickelt und produziert in Deutschland. Höchste Qualitätsstandards, kurze Lieferwege.</p>
+                    <h3 data-i18n="feat.6.title">Made in Germany</h3>
+                    <p data-i18n="feat.6.text">Entwickelt und produziert in Deutschland. Höchste Qualitätsstandards, kurze Lieferwege.</p>
                 </div>
             </div>
         </div>
@@ -1528,7 +1592,7 @@
     <section class="reviews">
         <div class="reviews-inner">
             <div class="reviews-header reveal">
-                <p class="section-label">Kundenstimmen</p>
+                <p class="section-label" data-i18n="rev.label">Kundenstimmen</p>
                 <div class="reviews-stars-overall">
                     <span class="star">&#9733;</span>
                     <span class="star">&#9733;</span>
@@ -1536,8 +1600,8 @@
                     <span class="star">&#9733;</span>
                     <span class="star">&#9733;</span>
                 </div>
-                <h2 class="section-title">Was Golfer sagen</h2>
-                <p class="section-text" style="margin: 0 auto;">Echte Erfahrungen von Spielern, die das Velmont Tee auf der Range und dem Platz testen.</p>
+                <h2 class="section-title" data-i18n="rev.title">Was Golfer sagen</h2>
+                <p class="section-text" style="margin: 0 auto;" data-i18n="rev.text">Echte Erfahrungen von Spielern, die das Velmont Tee auf der Range und dem Platz testen.</p>
             </div>
             <div class="reviews-grid">
 
@@ -1545,14 +1609,14 @@
                     <div class="review-stars">
                         <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
                     </div>
-                    <p class="review-text">Endlich ein Tee, das nicht nach jedem Abschlag weg ist. Die Kordel am Ballkorb ist genial, ich hab schon hunderte Range-Sessions hinter mir und verlier es nie.</p>
+                    <p class="review-text" data-i18n="rev.1.text">Endlich ein Tee, das nicht nach jedem Abschlag weg ist. Die Kordel am Ballkorb ist genial, ich hab schon hunderte Range-Sessions hinter mir und verlier es nie.</p>
                     <div class="review-author">
                         <div class="review-avatar">M</div>
                         <div class="review-author-info">
                             <span class="review-name">Markus T.</span>
-                            <span class="review-meta">Handicap 12 · München</span>
+                            <span class="review-meta" data-i18n="rev.1.meta">Handicap 12 · München</span>
                         </div>
-                        <span class="review-verified">Verifiziert</span>
+                        <span class="review-verified" data-i18n="rev.verified">Verifiziert</span>
                     </div>
                 </div>
 
@@ -1560,12 +1624,12 @@
                     <div class="review-stars">
                         <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9734;</span>
                     </div>
-                    <p class="review-text">Das Tee hält was es verspricht. Hochwertige Verarbeitung, liegt perfekt in der Hand. Das Medium passt ideal zu meinem Driver, ich würde es jederzeit wieder kaufen.</p>
+                    <p class="review-text" data-i18n="rev.2.text">Das Tee hält was es verspricht. Hochwertige Verarbeitung, liegt perfekt in der Hand. Das Medium passt ideal zu meinem Driver, ich würde es jederzeit wieder kaufen.</p>
                     <div class="review-author">
                         <div class="review-avatar">S</div>
                         <div class="review-author-info">
                             <span class="review-name">Stefan B.</span>
-                            <span class="review-meta">Handicap 7 · Hamburg</span>
+                            <span class="review-meta" data-i18n="rev.2.meta">Handicap 7 · Hamburg</span>
                         </div>
                         <span class="review-verified">Verifiziert</span>
                     </div>
@@ -1575,14 +1639,14 @@
                     <div class="review-stars">
                         <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
                     </div>
-                    <p class="review-text">Als Geschenk für meinen Mann gekauft, er ist begeistert. Die Box sieht edel aus, das Tee selbst macht einen sehr robusten Eindruck. Definitiv kein Vergleich zu normalen Plastiktees.</p>
+                    <p class="review-text" data-i18n="rev.3.text">Als Geschenk für meinen Mann gekauft, er ist begeistert. Die Box sieht edel aus, das Tee selbst macht einen sehr robusten Eindruck. Definitiv kein Vergleich zu normalen Plastiktees.</p>
                     <div class="review-author">
                         <div class="review-avatar">L</div>
                         <div class="review-author-info">
                             <span class="review-name">Laura K.</span>
-                            <span class="review-meta">Köln</span>
+                            <span class="review-meta" data-i18n="rev.3.meta">Köln</span>
                         </div>
-                        <span class="review-verified">Verifiziert</span>
+                        <span class="review-verified" data-i18n="rev.verified">Verifiziert</span>
                     </div>
                 </div>
 
@@ -1593,12 +1657,12 @@
     <!-- CTA -->
     <section class="cta">
         <div class="reveal">
-            <p class="section-label">Bereit für das Upgrade?</p>
-            <h2 class="section-title">Nie wieder ein Tee verlieren.</h2>
-            <p class="section-text">
+            <p class="section-label" data-i18n="cta.label">Bereit für das Upgrade?</p>
+            <h2 class="section-title" data-i18n="cta.title">Nie wieder ein Tee verlieren.</h2>
+            <p class="section-text" data-i18n="cta.text">
                 Konfiguriere dein Velmont Tee und erlebe Golf auf einem neuen Level.
             </p>
-            <a href="https://7ccjau-pn.myshopify.com" class="btn-primary" target="_blank">Zum Shop</a>
+            <a href="https://7ccjau-pn.myshopify.com" class="btn-primary" target="_blank" data-i18n="cta.btn">Zum Shop</a>
         </div>
     </section>
 
@@ -1608,10 +1672,10 @@
             <div class="footer-logo">Velmont Golf</div>
             <ul class="footer-links">
                 <li><a href="https://7ccjau-pn.myshopify.com" target="_blank">Shop</a></li>
-                <li><a href="mailto:velmontgolfde@gmail.com">Kontakt</a></li>
+                <li><a href="mailto:velmontgolfde@gmail.com" data-i18n="footer.contact">Kontakt</a></li>
                 <li><a href="https://www.tiktok.com/@velmontgolf" target="_blank">TikTok</a></li>
             </ul>
-            <p class="footer-copy">&copy; 2026 Velmont Golf. Alle Rechte vorbehalten.</p>
+            <p class="footer-copy" data-i18n="footer.copy">&copy; 2026 Velmont Golf. Alle Rechte vorbehalten.</p>
         </div>
     </footer>
 
@@ -1672,6 +1736,166 @@
         function updateCfgSummary() {
             document.getElementById('cfgSummary').textContent = cfgSize;
         }
+
+        // ─── Language Toggle ───
+        const i18n = {
+            de: {
+                'nav.tee': 'Das Tee',
+                'nav.sizes': 'Größen',
+                'nav.features': 'Vorteile',
+                'nav.packaging': 'Verpackung',
+                'nav.shop': 'Jetzt bestellen',
+                'hero.subtitle': 'Das letzte Tee, das du je brauchst.<br>Wiederverwendbar. Individuell. Kompromisslos.',
+                'hero.btn': 'Entdecken',
+                'hero.scroll': 'Scroll',
+                'intro.label': 'Das Produkt',
+                'intro.title': 'Designed, um zu bleiben',
+                'intro.text1': 'Herkömmliche Tees brechen beim ersten Abschlag. Das Velmont Tee ist anders: robust, wiederverwendbar und mit einer Kordel gesichert, damit es immer griffbereit bleibt.',
+                'intro.text2': 'Gefertigt aus hochwertigem Material in Deutschland &mdash; für Golfer, die Wert auf Qualität und Nachhaltigkeit legen.',
+                'sizes.label': 'Drei Größen',
+                'sizes.title': 'Die richtige Höhe<br>für deinen Driver',
+                'sizes.text': 'Drei Höhen, ein Zweck &mdash; wähle die Aufteehöhe, die zu deinem Abschlag passt.',
+                'sizes.short.desc': 'Fairway Finder — kontrollierter Abschlag',
+                'sizes.medium.desc': 'Ausgewogen — Kontrolle und Distanz',
+                'sizes.tall.desc': 'Maximale Höhe für volle Driver-Power',
+                'config.label': 'Interaktiver Konfigurator',
+                'config.summary': 'Deine Wahl:',
+                'config.section.label': 'Individualisierung',
+                'config.title': 'Dein Tee.<br>Deine Regeln.',
+                'config.text1': 'Wähle die Höhe, die zu deinem Spiel passt. Jedes Tee wird individuell für dich zusammengestellt &mdash; so präzise wie dein Abschlag.',
+                'config.text2': 'Drei Höhen &mdash; probier es aus.',
+                'pack.label': 'Verpackung',
+                'pack.title': 'Für jeden Anlass<br>die richtige Verpackung',
+                'pack.text': 'Einzeln oder als Set &mdash; jedes Velmont Tee kommt sorgfältig verpackt.',
+                'pack.single.label': 'Einzelkauf',
+                'pack.single.name': 'Premium Staubbeutel',
+                'pack.single.desc': 'Jedes einzeln bestellte Tee kommt in einem hochwertigen Staubbeutel &mdash; schützend, kompakt und immer griffbereit in der Golftasche.',
+                'pack.bundle.label': 'Bundle',
+                'pack.bundle.name': 'Handgefertigte Box',
+                'pack.bundle.desc': 'Beim Bundle-Kauf kommt alles in einer handgefertigten Box mit maßgeschneidertem Schaumstoff-Inlay &mdash; perfekt zum Verschenken oder Selbstbehalten.',
+                'pack.badge': 'Entwickelt und produziert<br>in Deutschland',
+                'feat.label': 'Warum Velmont',
+                'feat.title': 'Durchdacht bis<br>ins kleinste Detail',
+                'feat.text': 'Jedes Element wurde mit Präzision entwickelt, um dein Spiel zu verbessern.',
+                'feat.1.title': 'Unzerbrechlich',
+                'feat.1.text': 'Aus robustem Material gefertigt, das selbst kraftvollsten Abschlägen standhält. Ein Tee für tausende Runden.',
+                'feat.2.title': 'Immer dabei',
+                'feat.2.text': 'Die Kordel lässt sich am Ballkorb auf der Range befestigen. Nie wieder nach dem Tee suchen.',
+                'feat.3.title': 'Drei Höhen',
+                'feat.3.text': 'Wähle zwischen Short, Medium und Tall &mdash; perfekt abgestimmt auf deinen Driver und deinen Schwung.',
+                'feat.4.title': 'Geflochtene Kordel',
+                'feat.4.text': 'Am Ballkorb auf der Range befestigt — das Tee ist immer griffbereit und geht nie verloren.',
+                'feat.5.title': 'Nachhaltig',
+                'feat.5.text': 'Ein Tee statt hunderte. Weniger Abfall auf dem Platz, weniger Plastik im Müll. Golf mit gutem Gewissen.',
+                'feat.6.title': 'Made in Germany',
+                'feat.6.text': 'Entwickelt und produziert in Deutschland. Höchste Qualitätsstandards, kurze Lieferwege.',
+                'rev.label': 'Kundenstimmen',
+                'rev.title': 'Was Golfer sagen',
+                'rev.text': 'Echte Erfahrungen von Spielern, die das Velmont Tee auf der Range und dem Platz testen.',
+                'rev.1.text': 'Endlich ein Tee, das nicht nach jedem Abschlag weg ist. Die Kordel am Ballkorb ist genial, ich hab schon hunderte Range-Sessions hinter mir und verlier es nie.',
+                'rev.1.meta': 'Handicap 12 · München',
+                'rev.2.text': 'Das Tee hält was es verspricht. Hochwertige Verarbeitung, liegt perfekt in der Hand. Das Medium passt ideal zu meinem Driver, ich würde es jederzeit wieder kaufen.',
+                'rev.2.meta': 'Handicap 7 · Hamburg',
+                'rev.3.text': 'Als Geschenk für meinen Mann gekauft, er ist begeistert. Die Box sieht edel aus, das Tee selbst macht einen sehr robusten Eindruck. Definitiv kein Vergleich zu normalen Plastiktees.',
+                'rev.3.meta': 'Köln',
+                'rev.verified': 'Verifiziert',
+                'cta.label': 'Bereit für das Upgrade?',
+                'cta.title': 'Nie wieder ein Tee verlieren.',
+                'cta.text': 'Konfiguriere dein Velmont Tee und erlebe Golf auf einem neuen Level.',
+                'cta.btn': 'Zum Shop',
+                'footer.contact': 'Kontakt',
+                'footer.copy': '&copy; 2026 Velmont Golf. Alle Rechte vorbehalten.',
+            },
+            en: {
+                'nav.tee': 'The Tee',
+                'nav.sizes': 'Sizes',
+                'nav.features': 'Benefits',
+                'nav.packaging': 'Packaging',
+                'nav.shop': 'Shop Now',
+                'hero.subtitle': 'The last tee you\'ll ever need.<br>Reusable. Individual. Uncompromising.',
+                'hero.btn': 'Discover',
+                'hero.scroll': 'Scroll',
+                'intro.label': 'The Product',
+                'intro.title': 'Designed to last',
+                'intro.text1': 'Ordinary tees break on the first swing. The Velmont Tee is different: robust, reusable, and secured with a cord so it\'s always within reach.',
+                'intro.text2': 'Crafted from premium materials in Germany &mdash; for golfers who value quality and sustainability.',
+                'sizes.label': 'Three Sizes',
+                'sizes.title': 'The right height<br>for your driver',
+                'sizes.text': 'Three heights, one purpose &mdash; choose the tee height that suits your swing.',
+                'sizes.short.desc': 'Fairway Finder — controlled tee shot',
+                'sizes.medium.desc': 'Balanced — control and distance',
+                'sizes.tall.desc': 'Maximum height for full driver power',
+                'config.label': 'Interactive Configurator',
+                'config.summary': 'Your choice:',
+                'config.section.label': 'Customisation',
+                'config.title': 'Your Tee.<br>Your Rules.',
+                'config.text1': 'Choose the height that suits your game. Every tee is individually assembled for you &mdash; as precise as your swing.',
+                'config.text2': 'Three heights &mdash; try it out.',
+                'pack.label': 'Packaging',
+                'pack.title': 'The right packaging<br>for every occasion',
+                'pack.text': 'Individually or as a set &mdash; every Velmont Tee comes carefully packaged.',
+                'pack.single.label': 'Single Purchase',
+                'pack.single.name': 'Premium Dust Bag',
+                'pack.single.desc': 'Every individually ordered tee comes in a high-quality dust bag &mdash; protective, compact, and always at hand in your golf bag.',
+                'pack.bundle.label': 'Bundle',
+                'pack.bundle.name': 'Handcrafted Box',
+                'pack.bundle.desc': 'Bundle orders come in a handcrafted box with a custom foam inlay &mdash; perfect as a gift or to keep for yourself.',
+                'pack.badge': 'Developed and manufactured<br>in Germany',
+                'feat.label': 'Why Velmont',
+                'feat.title': 'Thought through<br>to the last detail',
+                'feat.text': 'Every element was developed with precision to elevate your game.',
+                'feat.1.title': 'Unbreakable',
+                'feat.1.text': 'Made from robust material that withstands even the most powerful swings. One tee for thousands of rounds.',
+                'feat.2.title': 'Always with you',
+                'feat.2.text': 'The cord attaches to the ball basket on the range. Never search for your tee again.',
+                'feat.3.title': 'Three Heights',
+                'feat.3.text': 'Choose between Short, Medium and Tall &mdash; perfectly matched to your driver and your swing.',
+                'feat.4.title': 'Braided Cord',
+                'feat.4.text': 'Attached to the ball basket on the range — the tee is always within reach and never gets lost.',
+                'feat.5.title': 'Sustainable',
+                'feat.5.text': 'One tee instead of hundreds. Less waste on the course, less plastic in the bin. Golf with a clear conscience.',
+                'feat.6.title': 'Made in Germany',
+                'feat.6.text': 'Developed and manufactured in Germany. Highest quality standards, short supply chains.',
+                'rev.label': 'Customer Reviews',
+                'rev.title': 'What Golfers Say',
+                'rev.text': 'Real experiences from players testing the Velmont Tee on the range and the course.',
+                'rev.1.text': 'Finally a tee that doesn\'t disappear after every shot. The cord on the ball basket is brilliant — I\'ve had hundreds of range sessions and never lose it.',
+                'rev.1.meta': 'Handicap 12 · Munich',
+                'rev.2.text': 'The tee delivers on its promise. Premium craftsmanship, fits perfectly in the hand. The Medium is ideal for my driver — I would buy it again without hesitation.',
+                'rev.2.meta': 'Handicap 7 · Hamburg',
+                'rev.3.text': 'Bought as a gift for my husband and he loves it. The box looks elegant, the tee itself feels very robust. Definitely no comparison to normal plastic tees.',
+                'rev.3.meta': 'Cologne',
+                'rev.verified': 'Verified',
+                'cta.label': 'Ready for the upgrade?',
+                'cta.title': 'Never lose a tee again.',
+                'cta.text': 'Configure your Velmont Tee and experience golf on a new level.',
+                'cta.btn': 'Shop Now',
+                'footer.contact': 'Contact',
+                'footer.copy': '&copy; 2026 Velmont Golf. All rights reserved.',
+            }
+        };
+
+        function setLanguage(lang) {
+            localStorage.setItem('vg-lang', lang);
+            document.documentElement.lang = lang;
+            document.title = lang === 'de'
+                ? 'Velmont Golf — Das letzte Tee, das du je brauchst'
+                : 'Velmont Golf — The last tee you\'ll ever need';
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.dataset.i18n;
+                if (i18n[lang] && i18n[lang][key] !== undefined) {
+                    el.innerHTML = i18n[lang][key];
+                }
+            });
+        }
+
+        (function() {
+            const saved = localStorage.getItem('vg-lang') || 'de';
+            setLanguage(saved);
+        })();
 
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
