@@ -435,6 +435,133 @@
             transform: scale(1.05);
         }
 
+        /* ─── REVIEWS ─── */
+        .reviews {
+            background: var(--bg-primary);
+            padding: 6rem 2.5rem;
+        }
+
+        .reviews-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .reviews-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .reviews-stars-overall {
+            display: flex;
+            justify-content: center;
+            gap: 0.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .star { color: var(--gold); font-size: 1.1rem; }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.75rem;
+        }
+
+        .review-card {
+            background: var(--bg-cream);
+            padding: 2rem 1.75rem;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.07);
+        }
+
+        .review-card::before {
+            content: '\201C';
+            font-family: var(--font-display);
+            font-size: 5rem;
+            line-height: 1;
+            color: var(--gold);
+            opacity: 0.2;
+            position: absolute;
+            top: 1rem;
+            left: 1.5rem;
+        }
+
+        .review-stars {
+            display: flex;
+            gap: 0.2rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .review-stars .star { font-size: 0.8rem; }
+
+        .review-text {
+            font-size: 0.88rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .review-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #FAF9F6;
+            flex-shrink: 0;
+        }
+
+        .review-author-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.1rem;
+        }
+
+        .review-name {
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .review-meta {
+            font-size: 0.68rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            letter-spacing: 0.03em;
+        }
+
+        .review-verified {
+            margin-left: auto;
+            font-size: 0.62rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        @media (max-width: 900px) {
+            .reviews-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+        }
+
         /* ─── OTHER SIZES ─── */
         .other-sizes {
             padding: 6rem 2.5rem;
@@ -717,6 +844,63 @@
             </div>
             <div class="lifestyle-img reveal reveal-delay-2">
                 <img src="img/tee-action.jpg" alt="Velmont Golf Tee auf der Range" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews -->
+    <section class="reviews">
+        <div class="reviews-inner">
+            <div class="reviews-header reveal">
+                <p class="section-label">Kundenstimmen</p>
+                <div class="reviews-stars-overall">
+                    <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
+                </div>
+                <h2 class="section-title">Was Golfer über das Short Tee sagen</h2>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card reveal reveal-delay-1">
+                    <div class="review-stars">
+                        <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
+                    </div>
+                    <p class="review-text">Das 34mm ist genau das richtige für mein Eisenspiel auf der Range. Flacher Kontakt, super Konsistenz — und das Tee ist nach hunderten Abschlägen noch wie neu.</p>
+                    <div class="review-author">
+                        <div class="review-avatar">T</div>
+                        <div class="review-author-info">
+                            <span class="review-name">Thomas R.</span>
+                            <span class="review-meta">Handicap 9 · Frankfurt</span>
+                        </div>
+                        <span class="review-verified">Verifiziert</span>
+                    </div>
+                </div>
+                <div class="review-card reveal reveal-delay-2">
+                    <div class="review-stars">
+                        <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
+                    </div>
+                    <p class="review-text">Endlich ein Tee das hält. Die niedrige Höhe passt perfekt zu meinem kompakten Swing. Kordel am Ballkorb ist ein Game-Changer — suche nichts mehr.</p>
+                    <div class="review-author">
+                        <div class="review-avatar">M</div>
+                        <div class="review-author-info">
+                            <span class="review-name">Markus T.</span>
+                            <span class="review-meta">Handicap 12 · München</span>
+                        </div>
+                        <span class="review-verified">Verifiziert</span>
+                    </div>
+                </div>
+                <div class="review-card reveal reveal-delay-3">
+                    <div class="review-stars">
+                        <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
+                    </div>
+                    <p class="review-text">Sehr hochwertig verarbeitet. Das Short Tee gibt mir das Gefühl, dass ich die Höhe endlich unter Kontrolle habe. Made in Germany merkt man wirklich.</p>
+                    <div class="review-author">
+                        <div class="review-avatar">F</div>
+                        <div class="review-author-info">
+                            <span class="review-name">Felix W.</span>
+                            <span class="review-meta">Handicap 18 · Berlin</span>
+                        </div>
+                        <span class="review-verified">Verifiziert</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
