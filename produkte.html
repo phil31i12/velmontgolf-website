@@ -342,8 +342,9 @@
 
         .use-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, minmax(0, 480px));
             gap: 1.5rem;
+            justify-content: center;
         }
 
         .use-item {
@@ -585,21 +586,15 @@
             </p>
             <div class="use-grid">
                 <div class="use-item reveal reveal-delay-1">
-                    <img src="img/tee-action.jpg" alt="Driving Range" loading="lazy">
+                    <img src="img/tee-action.jpg" alt="Von der Matte" loading="lazy">
                     <div class="use-item-overlay">
-                        <span class="use-item-text">Driving Range</span>
+                        <span class="use-item-text">Von der Matte</span>
                     </div>
                 </div>
                 <div class="use-item reveal reveal-delay-2">
-                    <img src="img/tee-grass.jpg" alt="Auf dem Grün" loading="lazy">
+                    <img src="img/tee-grass.jpg" alt="Vom Rasen" loading="lazy">
                     <div class="use-item-overlay">
-                        <span class="use-item-text">Auf dem Grün</span>
-                    </div>
-                </div>
-                <div class="use-item reveal reveal-delay-3">
-                    <img src="img/tee-lifestyle.jpg" alt="Lifestyle" loading="lazy">
-                    <div class="use-item-overlay">
-                        <span class="use-item-text">Lifestyle</span>
+                        <span class="use-item-text">Vom Rasen</span>
                     </div>
                 </div>
             </div>
