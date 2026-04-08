@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressum — Velmont Golf</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-primary: #FAF9F6;
+            --bg-dark: #1a1a1a;
+            --bg-cream: #F5F0EB;
+            --text-primary: #1a1a1a;
+            --text-secondary: #5a5a5a;
+            --text-light: #FAF9F6;
+            --accent: #2D5016;
+            --gold: #C4A265;
+            --border: #e0ddd8;
+            --font-body: 'Inter', sans-serif;
+            --font-display: 'Playfair Display', serif;
+        }
+
+        html { font-size: 16px; }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ─── NAV ─── */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            padding: 1rem 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(250, 249, 246, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 1px 0 var(--border);
+        }
+
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .nav-back {
+            font-size: 0.75rem;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-back:hover { color: var(--gold); }
+
+        /* ─── CONTENT ─── */
+        .impressum-wrap {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 10rem 2rem 8rem;
+        }
+
+        .page-label {
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1.25rem;
+        }
+
+        h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 400;
+            margin-bottom: 3rem;
+            line-height: 1.2;
+        }
+
+        .impressum-block {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .impressum-block:last-child {
+            border-bottom: none;
+        }
+
+        .impressum-block h2 {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .impressum-block p,
+        .impressum-block address {
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-style: normal;
+        }
+
+        .impressum-block a {
+            color: var(--text-primary);
+            text-decoration: none;
+            border-bottom: 1px solid var(--border);
+            transition: border-color 0.3s ease;
+        }
+
+        .impressum-block a:hover {
+            border-color: var(--gold);
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            background: var(--bg-dark);
+            color: rgba(250, 249, 246, 0.4);
+            padding: 3.5rem 2.5rem;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: rgba(250, 249, 246, 0.7);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .footer-links a {
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            text-decoration: none;
+            color: rgba(250, 249, 246, 0.4);
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover { color: var(--gold); }
+
+        .footer-copy { font-size: 0.7rem; letter-spacing: 0.05em; }
+
+        @media (max-width: 600px) {
+            nav { padding: 1rem 1.25rem; }
+            .footer-inner { flex-direction: column; gap: 1.5rem; text-align: center; }
+            .footer-links { gap: 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="nav-logo">Velmont Golf</a>
+        <a href="index.html" class="nav-back">← Zurück</a>
+    </nav>
+
+    <div class="impressum-wrap">
+        <p class="page-label">Rechtliches</p>
+        <h1>Impressum</h1>
+
+        <div class="impressum-block">
+            <h2>Angaben gemäß § 5 TMG</h2>
+            <address>
+                Henri Ullrich<br>
+                handelnd unter Velmont Golf UG<br>
+                Musterstraße 12<br>
+                12345 Musterstadt<br>
+                Deutschland
+            </address>
+        </div>
+
+        <div class="impressum-block">
+            <h2>Kontakt</h2>
+            <p>E-Mail: <a href="mailto:velmontgolfde@gmail.com">velmontgolfde@gmail.com</a></p>
+        </div>
+
+        <div class="impressum-block">
+            <h2>Umsatzsteuer-Identifikationsnummer</h2>
+            <p>DE123456789</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-logo">Velmont Golf</div>
+            <ul class="footer-links">
+                <li><a href="https://7ccjau-pn.myshopify.com" target="_blank">Shop</a></li>
+                <li><a href="mailto:velmontgolfde@gmail.com">Kontakt</a></li>
+                <li><a href="https://www.tiktok.com/@velmontgolf" target="_blank">TikTok</a></li>
+                <li><a href="impressum.html">Impressum</a></li>
+            </ul>
+            <p class="footer-copy">&copy; 2026 Velmont Golf. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
