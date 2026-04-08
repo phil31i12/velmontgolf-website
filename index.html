@@ -814,81 +814,78 @@
 
         /* ─── GALLERY ─── */
         .gallery {
-            padding: 0;
-            display: grid;
-            grid-template-columns: 58% 42%;
-            height: 70vh;
-            min-height: 480px;
-            gap: 3px;
-            background: #111;
-        }
-
-        .gallery-item {
             position: relative;
+            height: 85vh;
+            min-height: 520px;
             overflow: hidden;
-            cursor: pointer;
         }
 
-        .gallery-item img {
+        .gallery img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
-            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            filter: brightness(0.82);
+            transform-origin: center center;
+            animation: galleryZoom 12s ease-in-out infinite alternate;
         }
 
-        .gallery-item:hover img {
-            transform: scale(1.06);
-            filter: brightness(0.95);
+        @keyframes galleryZoom {
+            from { transform: scale(1.0); }
+            to   { transform: scale(1.06); }
         }
 
-        .gallery-item-overlay {
+        .gallery-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 50%);
+            background:
+                linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, transparent 30%),
+                linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 55%);
             pointer-events: none;
         }
 
-        .gallery-item-label {
+        .gallery-text {
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
-            padding: 2.5rem 2.5rem 2rem;
-            transform: translateY(8px);
-            transition: transform 0.5s ease;
+            padding: 4rem 5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
         }
 
-        .gallery-item:hover .gallery-item-label {
-            transform: translateY(0);
-        }
-
-        .gallery-item-label span {
-            display: block;
-            font-size: 0.6rem;
-            font-weight: 500;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 0.4rem;
-            opacity: 0;
-            transform: translateY(6px);
-            transition: opacity 0.4s ease 0.05s, transform 0.4s ease 0.05s;
-        }
-
-        .gallery-item:hover .gallery-item-label span {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .gallery-item-label h3 {
+        .gallery-text-left h2 {
             font-family: var(--font-display);
-            font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
             font-weight: 400;
             color: var(--text-light);
-            letter-spacing: 0.01em;
-            line-height: 1.1;
+            line-height: 1.05;
+            letter-spacing: -0.01em;
+        }
+
+        .gallery-text-left h2 em {
+            font-style: italic;
+            color: var(--gold);
+        }
+
+        .gallery-text-right {
+            text-align: right;
+            padding-bottom: 0.35rem;
+        }
+
+        .gallery-text-right p {
+            font-size: 0.8rem;
+            font-weight: 300;
+            color: rgba(250,249,246,0.6);
+            letter-spacing: 0.05em;
+            line-height: 1.7;
+            max-width: 240px;
+        }
+
+        @media (max-width: 900px) {
+            .gallery { height: 60vh; }
+            .gallery-text { padding: 2.5rem 2rem; flex-direction: column; align-items: flex-start; gap: 1rem; }
+            .gallery-text-right { text-align: left; }
         }
 
         /* ─── PACKAGING ─── */
@@ -1284,15 +1281,6 @@
                 gap: 1.5rem;
             }
 
-            .gallery {
-                grid-template-columns: 1fr;
-                height: auto;
-            }
-
-            .gallery-item {
-                aspect-ratio: 4/3;
-            }
-
             .packaging-options {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
@@ -1537,20 +1525,14 @@
 
     <!-- Gallery -->
     <div class="gallery">
-        <div class="gallery-item">
-            <img src="img/tee-action.jpg" alt="Velmont Golf Tee auf der Driving Range" loading="lazy">
-            <div class="gallery-item-overlay"></div>
-            <div class="gallery-item-label">
-                <span>Von der Matte</span>
-                <h3>Jeder Abschlag.<br>Immer dabei.</h3>
+        <img src="img/tee-action.jpg" alt="Velmont Golf Tee auf der Driving Range" loading="lazy">
+        <div class="gallery-overlay"></div>
+        <div class="gallery-text">
+            <div class="gallery-text-left">
+                <h2>Befestigt.<br><em>Nie verloren.</em></h2>
             </div>
-        </div>
-        <div class="gallery-item">
-            <img src="img/tee-grass.jpg" alt="Velmont Golf Tee auf dem Rasen" loading="lazy">
-            <div class="gallery-item-overlay"></div>
-            <div class="gallery-item-label">
-                <span>Vom Rasen</span>
-                <h3>Bereit wenn<br>du es bist.</h3>
+            <div class="gallery-text-right">
+                <p>Kordel am Ballkorb.<br>Tee immer griffbereit.<br>Kein Suchen mehr.</p>
             </div>
         </div>
     </div>
