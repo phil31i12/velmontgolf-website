@@ -1,8 +1,7 @@
 {
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/swing-simple", "destination": "/swing-simple.html" },
-    { "source": "/swing-simple/support", "destination": "/swing-simple-support.html" },
-    { "source": "/swing-simple/datenschutz", "destination": "/swing-simple-datenschutz.html" }
+    { "source": "/swing-simple/support", "destination": "/swing-simple-support" },
+    { "source": "/swing-simple/datenschutz", "destination": "/swing-simple-datenschutz" }
   ]
 }
